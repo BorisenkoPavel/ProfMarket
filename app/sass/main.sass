@@ -1,0 +1,141 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.65
+	font-family: $d-font
+	overflow-x: hidden
+	color: $text
+	input, textarea
+		border: #666 1px solid
+		outline: none
+		&:focus:required:invalid
+			border-color: red
+		&:required:valid
+			border-color: green
+
+.img-responsive
+	display: block
+	max-width: 100%
+	height: auto
+	&.img-width
+		width: 100%
+
+.text-center
+	text-align: center
+
+b, strong
+	font-weight: bold
+
+h1,h2,h3,h4,h5
+	font-family: $a-font
+
+h1 
+	font-size: 2em
+	letter-spacing: -1.5
+	font-weight: 300
+
+h2 
+	font-size: 1.75em
+	letter-spacing: -0.5
+	font-weight: 300
+
+h3 
+	font-size: 1.5em
+	letter-spacing: 0
+	font-weight: 400
+
+h4
+	font-size: 1.25em
+	letter-spacing: 0.25
+	font-weight: 400
+
+h5 
+	font-size: 1em
+	letter-spacing: 0
+	font-weight: bold
+
+.subtitle1
+	font-size: 1em
+	font-weight: 400
+
+.subtitle2
+	font-size: 0.875em
+	font-weight: 500
+
+.caption
+	font-size: 0.75em
+	letter-spacing: 0.4
+
+.overline
+	font-size: 0.625em
+	letter-spacing: 1.5
+	text-transform: uppercase
+
+.body2
+	font-size: 0.875em
+	font-size: 14px
+	letter-spacing: 0.25
+	font-family: 'sans-serif'
+
+.btn 
+	position: relative
+	display: inline-block
+	margin: 30px auto
+	padding: 10rem 30rem
+	overflow: hidden
+	border-width: 0
+	outline: none
+	border-radius: 2px
+	box-shadow: 0 1px 4px rgba(0, 0, 0, .6)
+	background-color: #2ecc71
+	color: #ecf0f1
+	transition: background-color .3s
+	cursor: pointer
+	text-transform: uppercase
+	margin-bottom: 30px
+
+.btn:hover, .btn:focus 
+	background-color: #27ae60
+	margin-bottom: 30px
+	transition: .3s
+	text-decoration: none
+	color: #fff
+.btn > * 
+	position: relative
+
+.btn span 
+	display: block
+	padding: 12px 24px
+
+.btn:before 
+	content: ""
+	position: absolute
+	top: 50%
+	left: 50%
+	display: block
+	width: 0
+	padding-top: 0
+	border-radius: 100%
+	background-color: rgba(236, 240, 241, .3)
+	transform: translate(-50%, -50%)
+	.btn:active:before 
+		width: 120%
+		padding-top: 120%
+		transition: width .2s ease-out, padding-top .2s ease-out
+		
+.bg-red
+	background-color: $accent
+	color: #fff
+@import "media" // Always at the end
