@@ -12,11 +12,12 @@
 body
 	font-size: 16px
 	min-width: 320px
-	position: relative
-	line-height: 1.65
+	line-height: 1.5
 	font-family: $d-font
-	overflow-x: hidden
 	color: $text
+	margin: auto
+	overflow-x: hidden
+	
 	input, textarea
 		border: #666 1px solid
 		outline: none
@@ -38,36 +39,33 @@ body
 b, strong
 	font-weight: bold
 
-h1,h2,h3,h4,h5
-	font-family: $a-font
-
-h1 
+h1,.h1
 	font-size: 2em
-	letter-spacing: -1.5
 	font-weight: 300
-
-h2 
+	margin-bottom: 1em
+h2,.h2
 	font-size: 1.75em
-	letter-spacing: -0.5
 	font-weight: 300
 
-h3 
+h3,.h3
 	font-size: 1.5em
 	letter-spacing: 0
 	font-weight: 400
 
-h4
+h4,.h4
 	font-size: 1.25em
-	letter-spacing: 0.25
 	font-weight: 400
 
-h5 
+h5,.h5
 	font-size: 1em
-	letter-spacing: 0
+	font-weight: bold
+
+h1,.h1,h2,.h2,h5,.h5
+	font-family: $a-font
 	font-weight: bold
 
 .subtitle1
-	font-size: 1em
+	font-size: 1.125em
 	font-weight: 400
 
 .subtitle2
@@ -83,59 +81,608 @@ h5
 	letter-spacing: 1.5
 	text-transform: uppercase
 
+.body
+	color: $d-grey
+	
 .body2
 	font-size: 0.875em
-	font-size: 14px
-	letter-spacing: 0.25
-	font-family: 'sans-serif'
 
+.social
+	width: 36px
+	height: 36px
+	background-color: $w-grey
+	border-radius: 50%
+	line-height: 36px
+	text-align: center
+	display: inline-block 
+	color: $d-grey
 .btn 
 	position: relative
 	display: inline-block
-	margin: 30px auto
-	padding: 10rem 30rem
+	padding: 0.875rem 1.875rem
 	overflow: hidden
-	border-width: 0
+	border: 2px solid #fff
 	outline: none
 	border-radius: 2px
-	box-shadow: 0 1px 4px rgba(0, 0, 0, .6)
-	background-color: #2ecc71
-	color: #ecf0f1
+	background-color: #fff
+	color: $accent
+	text-transform: uppercase
 	transition: background-color .3s
 	cursor: pointer
-	text-transform: uppercase
-	margin-bottom: 30px
+	margin-bottom: 25px
+	border-radius: 30px
+	font-weight: bold
+	font-family: $a-font
+	font-size: 0.875rem
 
 .btn:hover, .btn:focus 
-	background-color: #27ae60
-	margin-bottom: 30px
-	transition: .3s
+	background-color: $accent
 	text-decoration: none
 	color: #fff
+
 .btn > * 
 	position: relative
 
-.btn span 
-	display: block
-	padding: 12px 24px
+.box
+	position: relative
+	width: 100%	/* desired width */
 
-.btn:before 
+.box:before
 	content: ""
-	position: absolute
-	top: 50%
-	left: 50%
 	display: block
-	width: 0
-	padding-top: 0
-	border-radius: 100%
-	background-color: rgba(236, 240, 241, .3)
-	transform: translate(-50%, -50%)
-	.btn:active:before 
-		width: 120%
-		padding-top: 120%
-		transition: width .2s ease-out, padding-top .2s ease-out
-		
+	padding-top: 100% 	/* initial ratio of 1:1*/
+
+.box.ratio2_1:before
+	padding-top: 50%
+
+.box.ratio1_2:before
+	padding-top: 200%
+
+.box.ratio4_3:before
+	padding-top: 75%
+
+.box.ratio16_9:before
+	padding-top: 56.25%
+
+.content-box
+	position: absolute
+	top: 0
+	left: 0
+	bottom: 0
+	right: 0
+
+.red
+	color: $accent
+
+.white
+	color: #fff
+
 .bg-red
 	background-color: $accent
 	color: #fff
+.bg-wgrey
+	background-color: $w-grey
+	color: $d-grey
+.bg-white
+	background-color: $accent
+	
+.logo
+	display: flex
+	align-items: center
+	height: 100%
+	img
+		width: 100%
+		max-width: 270px
+
+.nav-container.black
+	.next, .prev
+		i
+			color: $text
+	.next:before
+		background-color: $text
+.nav-container
+	font-size: 40px
+	display: flex
+	font-weight: 100
+	align-items: center
+	line-height: 50px
+	height: 55px
+	.next, .prev
+		position: relative
+		cursor: pointer
+		color: #fff
+		i 
+	.next
+		margin-left: 33px
+		&:before
+			content: ''
+			height: 40px
+			width: 1px
+			margin: auto
+			top: 0
+			bottom: 3px
+			left: -16px
+			position: absolute
+			background-color: #fff
+			pointer-events: none
+
+.slick-dots
+	display: flex
+	list-style: none
+	padding: 0
+	margin: 0
+	width: 50%
+	justify-content: center
+	margin-top: 20px
+	li
+		button
+			cursor: pointer
+			background-color: transparent
+			font-size: 0
+			border: none
+			position: relative
+			background-color: $d-grey
+			width: 8px 
+			height: 8px
+			padding: 0
+			margin-left: 20px
+			border-radius: 50%
+	.slick-active
+		button
+			width: 50px
+			border-radius: 4px
+			background-color: $accent
+
+.section
+	padding: 2.5rem 0
+	&:first-of-type
+		padding-top: 0
+
+.section-title
+	display: flex
+	align-items: flex-start
+	justify-content: space-between
+
+.header-wrapper
+	position: relative
+.header
+	position: relative
+	font-family: $a-font
+	z-index: 9999
+	background-color: #fff
+	&__right-block
+		position: static
+	&__nav:before
+		content: ''
+		position: absolute
+		background-color: $w-grey
+		width: 5000px
+		top: 0
+		bottom: 0
+		left: 0
+		z-index: -1
+	&__nav
+		display: flex
+		width: 100%
+		justify-content: space-between
+		padding: 8px 0
+		position: relative
+		a 
+			color: $d-grey
+			margin: 0 20px
+	&__nav-list
+		list-style: none
+		padding: 0
+		margin: 0
+		display: flex
+	&__login
+		cursor: pointer
+	&__menu
+		display: flex
+		justify-content: space-between
+	&__menu-list--wrapper
+		padding: 20px 0
+	&__menu-list--left, &__menu-list--right
+		& > li 
+			border-bottom: 1px solid $w-grey
+			& > a 
+				&:before
+					content: '\f107'
+					position: absolute
+					right: 20px
+					font-family: 'font awesome 5 pro'
+					transition: .3s ease
+				&.active
+					&:before
+						transform: rotate(180deg)
+			&:hover
+				background-color: $d-grey
+				a
+					text-decoration: none
+			&:last-of-type
+				border-bottom: none
+	
+	&__menu-list--left
+		padding-right: 35px
+	&__menu-list--right
+		padding-left: 35px
+
+	&__menu-list
+		list-style: none
+		padding: 0
+		margin: 0
+		background-color: $grey
+		position: absolute
+		top: 100%
+		left: 0
+		right: 0
+		z-index: 5000
+		font-size: 1.125em
+		animation-timing-function: cubic-bezier(.175,.885,.32,1)
+	
+		a 
+			padding-left: 20px
+			color: #fff
+			font-family: $d-font
+			line-height: 3.1
+			display: block
+			position: relative
+			span
+				color: $text
+				margin-left: 10px
+	&__menu-sublist
+		list-style: none
+		padding-left: 30px
+		padding-bottom: 20px
+		display: none
+		li
+			a 
+				line-height: 40px
+				&:before
+					content: ''
+					height: 2px
+					width: 15px
+					background-color: #fff
+					left: -10px
+					top: 0
+					bottom: 0
+					margin: auto
+					position: absolute
+	&__menu-right
+		display: flex
+		justify-content: space-between
+		align-items: center
+		color: $accent
+		&-item
+			border-right: 1px solid #ccc
+			line-height: 32px
+			padding: 0 24px
+			cursor: pointer
+	&__cart
+		font-size: 0.875em
+		font-weight: 700
+		text-transform: uppercase
+		i 
+			margin-right: 10px
+	&__menu-left
+		text-transform: uppercase
+		font-size: 0.875em
+		color: #fff
+		font-weight: bold
+		background-color: $accent
+		padding: 21px 25px
+		cursor: pointer
+		display: flex
+		align-items: center
+		transition: .3s ease
+		position: relative
+		&:before
+			content: '\f0c9'
+			font-family: 'font awesome 5 pro'
+			font-weight: 300
+			font-size: 18px
+			padding-right: 10px
+			width: 25px
+	&__menu-left.active
+		background-color: $grey
+		&:before
+			content: '\f00d'
+
+.banner
+	&-sliders
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			bottom: 0
+			top: 0
+			width: 500%
+			background-color: $accent
+			right: 66.66667%
+			pointer-events: none
+			z-index: 
+	&__content-slider 
+		pointer-events: none
+		z-index: 500
+	&__slider 
+		position: absolute
+		z-index: -1
+		mix-blend-mode: multiply
+		top: 0
+		bottom: 0
+		left: 0
+		width: 150%
+		z-index: 10
+		img
+			object-fit: cover
+			width: 100%
+	.nav-container
+		position: absolute
+		z-index: 500
+		bottom: 5rem
+		left: 2.5rem
+	&__item
+		position: relative
+	&__img
+		display: flex!important
+		img
+			object-fit: cover
+			width: 100%
+			object-position: 50% 50%
+	&__title
+	&__text
+		margin-bottom: 1.6875rem
+	&__content
+		color: #fff
+		height: 530px
+		position: relative
+		padding: 5rem 2.5rem
+
+
+
+.catalog
+	position: relative
+	&__item
+		height: 100%
+		display: flex
+		align-items: flex-end
+		color: #fff
+		position: relative
+		&:after
+			content: ''
+			top: 0
+			bottom: 0
+			right: 0
+			left: 0
+			position: absolute
+			mix-blend-mode: multiply
+			transition: .3s
+			z-index: 2
+		&:before
+			content: ''
+			transition: .3s
+			opacity: 1
+			top: 0
+			left: 0
+			bottom: 0
+			right: 0
+			position: absolute
+			background-image: linear-gradient(to top, rgba(0, 0, 0, 0.75) 0%, rgba(0, 0, 0, 0) 100%)
+		&:hover
+			color: #fff
+			text-decoration: none
+			&:after
+				background-color: $accent
+			&:before
+				opacity: 0
+			.catalog__hover-bg
+				background-color: $accent
+	&-img
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center
+		position: absolute
+		z-index: -1
+		display: block
+	&__name
+		padding: 25px 29px
+		position: relative
+		z-index: 3
+	&__slider
+		width: 200%
+	&-bg
+		position: relative
+		&:before
+			content: ''
+			position: absolute
+			top: -5rem
+			bottom: -2.5rem
+			left: 33.33333%
+			width: 500%
+			background-color: $w-grey
+		&:after
+			content: ''
+			position: absolute
+			top: 80px
+			bottom: 45px
+			left: 100%
+			width: 500%
+			background-color: rgba(255,255,255, .4)
+
+	// .slick-active
+	// 	position: relative
+	// 	&:nth-of-type(1), &:nth-of-type(2), &:nth-of-type(3)
+	// 		&:before
+	// 			background-color: rgba(255,255,255, 0)
+	// 	&:before
+	// 		content: ''
+	// 		position: absolute
+	// 		top: 0
+	// 		bottom: 0
+	// 		left: 0
+	// 		right: 0
+	// 		background-color: rgba(255,255,255, .4)
+	// 		z-index: 500
+
+.change
+	&-list
+		margin: 0 -12px
+		margin-bottom: -1.875rem
+	&-item
+		padding: 0 12px
+		margin-bottom: 1.875rem
+		display: flex
+	&-icon
+		width: 60px
+		margin-right: 20px
+
+.partners
+	padding-bottom: 5rem
+	&-logo
+		display: flex
+		align-items: center
+		height: 100px	
+		width: 100%
+.partners-right
+	padding-left: 2.5rem
+.partners-middle
+	.h1
+		padding-left: 2.5rem
+	&-block
+		padding: 0 2.5rem
+		border-right: 1px solid $accent
+		border-left: 1px solid $accent
+
+.partners-left
+	padding-right: 2.5rem
+
+
+.director
+	background-color: $accent
+	background-image: url(../img/Pattern.png)
+	background-size: cover
+	background-repeat: no-repeat
+	color: #fff
+	padding-top: 80px
+	&-photo
+		position: absolute
+		bottom: -2.5rem
+		left: 0
+		right: 2.5rem
+		top: 0
+		background-image: url(../img/man.png)
+		background-repeat: no-repeat
+		background-size: contain
+		background-position: left bottom
+	&-name
+		position: relative
+		&:before
+			content: ''
+			background-image: url(../img/angle.png)
+			background-repeat: no-repeat
+			width: 15px
+			height: 254px
+			position: absolute
+			left: -4rem
+			top: 10px
+	&-position
+		font-size: 0.875rem
+		color: rgba(255,255,255, .6)
+		margin-bottom: 1.875rem
+	&-text
+		max-width: 430px
+		width: 100%
+		margin-bottom: 1.875rem
+
+
+
+.footer
+	&-left
+		padding-top: 3.75rem
+	&-logo.logo
+		height: auto
+		margin-bottom: 2.5rem
+		img
+			max-width: 176px
+	&__nav-list
+		padding: 0
+		margin: 0
+		font-size: 0.875rem
+		font-family: $a-font
+		height: 8.125rem
+		display: flex
+		flex-direction: column
+		justify-content: space-between
+		list-style: none
+		text-transform: uppercase
+		font-weight: bold
+		margin-bottom: 1.875rem
+		a
+			color: $accent
+			&:hover
+				text-decoration: none
+	&-content
+		margin-bottom: 3.4375rem
+	&-vk
+		margin-left: 10px
+	iframe
+		width: 50vw
+		filter: grayscale(1)
+		position: relative
+		margin-left: -1px
+	.filtr-map
+		&:after
+			content: ''
+			position: absolute
+			top: 0
+			width: 50vw
+			mix-blend-mode: multiply
+			bottom: 0
+			left: -1px
+			background: $d-grey
+			z-index: 10
+			pointer-events: none
+.addres
+	line-height: 2
+	font-size: 0.875rem
+	align-self: auto
+	a 
+		color: $text
+	&-title
+		text-transform: uppercase
+		text-transform: uppercase
+		font-weight: bold
+		color: $accent
+		&:first-of-type
+			color: $d-grey
+	ul
+		list-style: none
+		padding-left: 0
+		margin: 0
+		li
+			position: relative
+			padding-left: 1.5rem
+			&:before
+				content: ''
+				height: 1px
+				width: 10px
+				background-color: $d-grey
+				left: 0
+				top: 0
+				bottom: 0
+				margin: auto
+				position: absolute
+.copyright
+	padding: 14px 0
+	font-size: 0.75rem
+	font-family: $a-font
+	background: linear-gradient(to right, $w-grey 50%, $d-grey 50%)
+	position: relative
+	z-index: 50
+.e1media
+	padding-left: 2.5rem
 @import "media" // Always at the end
