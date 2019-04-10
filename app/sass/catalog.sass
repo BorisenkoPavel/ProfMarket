@@ -1,0 +1,27 @@
+@import "vars"
+
+.crumbs
+	ul
+		margin: 0
+		padding: 0
+		display: flex
+		padding-top: 1.25rem
+		li 
+			list-style: none
+			padding: 0.1875rem 0.9375rem
+			margin-right: 10px
+			&:last-child:after
+				content: ''
+			a 
+				color: grey
+				&:after
+					content: '\f105'
+					font-family: 'font awesome 5 pro'
+					color: $accent
+					font-size: 0.75em
+					margin-left: 0.5rem
+				&:hover
+					text-decoration: none
+		li.active
+			a	
+				

@@ -1,0 +1,356 @@
+@import "vars"
+
+
+main.lk
+	background-color: $w-grey
+.section-lk
+	padding-top: 2.5em
+
+.nav-buttons
+	display: flex
+	width: 100%
+	justify-content: space-between
+	margin-bottom: 2.5em
+	font-family: $a-font
+	flex-wrap: wrap
+	&__item
+		line-height: 1.875em
+		white-space: nowrap
+		text-align: center
+		color: $accent
+		text-transform: uppercase
+		font-size: 0.875em
+		font-weight: 700
+		transition: .3s
+		cursor: pointer
+		position: relative
+		padding: 0.9375em 0
+		flex: 1 1 25%
+		background-color: #fff
+		&:after
+			content: ''
+			position: absolute
+			width: 1px
+			height: 1.875em
+			top: 0
+			bottom: 0
+			margin: auto
+			right: -0.5px
+			background-color: $w-grey
+			transition: .3s
+		&.active:after, &:hover:after
+			opacity: 0
+		&:hover, &.active
+			background-color: $grey
+			color: #fff
+		&:last-of-type
+			border: none
+			margin: 0
+
+.filter-list
+	display: flex
+	align-items: center
+	margin-bottom: 1.25em
+	font-family: $a-font
+	flex-wrap: wrap
+.filter
+	display: flex
+	&__name
+		font-size: 0.875em
+		color: $grey
+		margin-right: 10px
+	&__item
+		font-size: 0.75em
+		text-transform: uppercase
+		color: $grey
+		border: 1px solid $grey
+		border-radius: 1.25em
+		line-height: 1.75em
+		padding: 0 15px
+		margin-right: 10px
+		cursor: pointer
+		transition: .3s
+		margin-bottom: 0.625em
+		&:hover
+			background-color: $accent
+			color: #ffffff
+			border: 1px solid $accent
+.your_orders
+	width: 100%
+	background-color: #fff
+	display: flex
+	flex-direction: column
+.your_orders-container
+	overflow-x: auto
+.your-orders__row
+	padding: 15px 0 15px 50px
+	border-bottom: 1px solid $w-grey
+	cursor: pointer
+	display: flex
+	justify-content: space-between
+	transition: .3s ease
+	align-items: center
+	&:hover, &.active
+		background-color: #cccccc
+		.lk-status
+			svg
+				use
+					fill: #fff
+				#status-red
+					stroke: #fff
+			&--yellow
+				background-color: #fa820c
+				color: #fff
+			&--red
+				background-color: #f63831
+				color: #fff
+			&--blue
+				background-color: #6889c6
+				color: #fff
+			&--green
+				background-color: #3ece02
+				color: #fff
+			&--black
+				background-color: #595959
+				color: #fff
+
+.your-orders__row--header, .your-orders__col--document
+	font-family: $a-font
+	font-size: 0.875em
+	color: $grey
+	font-weight: 400
+	.your-orders__col--name:before
+		display: none
+.your-orders__col
+	flex: 1 1 25%
+	padding-right: 20px
+
+.your-orders__col--name
+	position: relative
+	&:before
+		transition: .3s
+		content: '\f107'
+		position: absolute
+		font-family: 'font awesome 5 pro'
+		left: -29px
+		font-size: 1.125em
+.collapse.show.your-orders__details
+	display: flex
+.your-orders__details.collapse
+	display: none
+.your-orders__details
+	display: flex
+	justify-content: space-between
+	&-left
+		flex: 1 1 auto
+		.your-orders__col
+			flex: 1 1 20%
+		.your-orders__col-name
+			flex: 1 1 55%
+	&-right
+		display: flex
+		flex-direction: column
+		align-items: center
+		justify-content: center
+		padding: 1.25em
+		border-left: 1px solid $w-grey
+
+	.your-orders__row
+		padding: 10px 0 10px 50px
+		font-size: 0.875em
+	.your-orders__col--article
+		color: grey
+.your-orders__btn.btn
+	border: 1px solid grey
+	width: 100%
+	max-width: 220px
+	text-align: center
+	&:hover
+		border: 1px solid $accent
+	&:last-child
+		margin: 0
+
+.your-orders__item.active
+	transition: .3s 
+.your-orders__item.active
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.35)
+	& > .your-orders__row:first-child
+		background-color: $w-grey
+		.lk-status
+			&--yellow
+				background-color: #fa820c
+				color: #fff
+			&--red
+				background-color: #f63831
+				color: #fff
+			&--blue
+				background-color: #6889c6
+				color: #fff
+			&--green
+				background-color: #3ece02
+				color: #fff
+			&--black
+				background-color: #595959
+				color: #fff
+	.your-orders__col--name:before
+		transform: rotate(180deg)
+
+.lk-status
+	font-size: 0.75em
+	font-family: $a-font
+	text-transform: uppercase
+	border: 1px solid $grey
+	border-radius: 1.25em
+	line-height: 1.75em
+	padding: 0 15px
+	transition: .3s
+	display: inline-block
+	white-space: nowrap
+	svg 
+		display: inline-block
+		vertical-align: middle
+		margin-right: 0.625em
+		position: relative
+		bottom: 0.12em
+		use 
+			transition: .3s
+	&--yellow
+		color: #fa820c
+		border: 1px solid #fa820c
+		&
+	&--red
+		border: 1px solid #f63831
+		color: #f63831
+	&--blue
+		color: #6889c6
+		border: 1px solid #6889c6
+	&--green
+		border: 1px solid #3ece02
+		color: #3ece02
+	&--black
+		border: 1px solid #595959
+		color: #595959
+.paginations
+	margin-top: 1.875em
+	display: flex
+	align-items: center
+	width: 100%
+	justify-content: center
+	&-button.active, &-button.hover
+		border: 1px solid $accent
+		color: $accent
+	&-button
+		border: 1px solid $grey
+		cursor: pointer
+		color: $text
+		border-radius: 50%
+		font-family: "PT Sans"
+		font-size: 0.875em
+		font-weight: 700
+		text-transform: uppercase
+		margin: 0 0.625em
+		width: 2.125em
+		height: 2.125em
+		line-height: 2.125em
+		text-align: center
+		&:hover
+			background-color: $accent
+			color: #ffffff
+			border: 1px solid $accent
+	&-prev, &-next
+		width: 60px
+		height: 11px
+		background-image: url(../img/arrow.png)
+		background-repeat: no-repeat
+		background-size: contain
+		margin: 0 0.625em
+		cursor: pointer
+	&-next
+		transform: rotate(180deg)
+
+.lk-tab2
+	background-color: #fff
+
+.form-tab2, .form-request, .form-request
+	h3
+		font-family: $a-font
+		font-weight: 700
+
+.lk-tab
+	display: none
+
+.lk-tab.active 
+	display: block
+.lk-content
+	position: relative
+	z-index: 2
+	label
+		font-size: 0.875em
+		color: grey
+		display: flex
+		flex-direction: column
+		flex: 1 1 40%
+		margin: 0.625em
+		font-family: $a-font
+		span
+			transform: translate(1em, 2.325em)
+			transition: .2s ease
+			height: 20px
+			pointer-events: none
+		input
+			padding-left: 1em 
+			height: 42px
+			border: 1px solid #cccccc
+
+.your-orders__col--date, .your-orders__col--summ
+	flex: 1 1 15%
+.your-orders__col--status
+	flex: 1 1 25%
+.your-orders__col--name
+	flex: 1 1 40%	
+
+.form-tab2--right:before
+		content: ''
+		position: absolute
+		top: 2.1875em
+		bottom: 5em
+		width: 1px
+		background-color: $accent
+		left: -1px
+.form-tab2--left
+		padding: 2.1875em 2em 5em 1.25em
+.form-tab2--right
+		padding: 2.1875em 1.25em 5em 2em
+		position: relative
+.tab2__company
+	flex: 1 1 100%
+.label-container
+	display: flex
+	flex-wrap: wrap
+	margin: -0.625em
+.btn-tab2
+	margin-top: 3.125em
+
+.form-request
+	background-color: #fff	
+	padding: 2.5em 1.25em
+	.label-container
+		align-items: flex-end
+	label
+		flex: 1 1 25%
+	.tab2__comment
+		flex: 1 1 60%
+	.btn-tab2
+		margin: 0
+		margin-bottom: 0.625em
+		margin-right: 0.625em
+		
+.request, .claim
+	.your_orders
+		margin-top: 1.25em
+		h3
+			font-family: $a-font
+			font-weight: 700
+			margin-left: -30px
+			margin-bottom: 0
+			padding-top: 1.25em

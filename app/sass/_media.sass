@@ -5,17 +5,222 @@
 
 // ≥1200px
 +media-breakpoint-down(lg)
+	// .banner__slider, .about-us__slider
+	// 	width: calc((100vw - 960px) / 2 + 960px)
+	// .about-us-sliders:before, .banner-sliders:before
+	// 	width: calc((100vw - 960px)/ 2 + (960px / 100 * 33.33333))
+	// .header__nav:before
+	// 	width: calc((100vw - 960px)/ 2)
+	// .catalog-bg:before
+  //   width: calc((100vw - 960px)/ 2 + (960px / 100 * 66.66667))	
+
 
 // ≥992px
 +media-breakpoint-down(md)
 
+	.your-orders__col--date, .your-orders__col--summ, .your-orders__col--document
+		flex: 0 0 15%
+	.your-orders__col--status
+		flex: 0 0 25%
+	.your-orders__col--name
+		flex: 0 0 40%	
+	.your_orders
+		width: 960px
+	.form-tab2--left
+		padding: 0
+	.form-tab2--right
+		padding: 0
+		&:before
+			display: none
+	.form-tab2
+		padding: 2.5em 1.5em
+
 // ≥768px
 +media-breakpoint-down(sm)
+	.about-us-sliders:before, .banner-sliders:before
+		width: calc((100vw - 100%)/ 2 + 50%)
+	.banner-sliders:before
+		right: 50%
+	.about-us-sliders:before, .catalog-bg:before
+		left: 50%
+	.catalog-bg:before
+		width: calc((100vw - 100%)/ 2 + 50%)
 
+
+	.header__menu-left
+		padding: 1em 1.45em
+	.header__menu-left:before
+		padding-right: 0	
+		font-size: 1.5em
+	.header-wrapper--small .logo-text
+		width: auto
+		margin-right: 0.75em
+	.header__left-block
+		display: none
+	.header__menu
+		display: flex
+		justify-content: space-between
+		.logo
+			display: flex
+	.logo
+		display: none
+	.header__menu-left
+		span
+			display: none
+	.footer iframe
+		width: 100vw
+		margin-left: calc((100vw - 100%) / -2)
+		height: 300px
+	.footer .filtr-map:after
+		width: 100vw	
+		left: calc((100vw - 100%) / -2)
+
+
+	.director__left-block
+		display: none
+	.director
+		&-position, &-name, &-text, .director-content--wrapper.active .director-position
+			&:after
+				display: none
+			&:before
+				display: none
+	form
+		top: 0
+		bottom: 0
+		right: 0
+		left: 0
+		padding: 2.5em
+		&-button
+			padding: 1.075em 2.175em
+	.director
+		&-name, &-position
+			display: none
+		&-info
+			display: flex
+			.director-name, .director-position
+				display: block		
+	.partners-middle .h1
+		padding: 0
+	.partners-right
+		padding: 0
+	.partners-left
+		padding: 0
+	.partners-middle-block
+		padding: 0
+		border: none
+	.partners-logo
+		filter: grayscale(0)
+	.clients-slider, .brands-slider
+		display: flex
+		flex-wrap: wrap
+	.partners-middle
+		padding: .5em 0
+		margin-bottom: 0.5em
+	.catalog__slider
+		width: 200%
+	.nav-buttons__item
+		flex: 1 1 40%
 // ≥576px
 +media-breakpoint-down(xs)
+	.about-us__text
+		max-width: 22.0625em
+	.banner__content, .about-us__content, .banner__img ,.about-us__img
+		height: 470px
+	.about-us__content, .banner__content
+		padding: 5em 1.5em
+	.banner .nav-container
+		left: 1.5em
+	.change, .partners, .director, .footer-left, .section-title
+		padding-right: 1.5em
+		padding-left: 1.5em
+	.submit-container
+		flex-direction: column
+		margin: 0
+		button
+			margin-right: 0
+			margin-bottom: 1.5em
+			padding: 1.175em 3.375em
+	form
+		right: -2.5em
+		left: -2.5em
+		padding: 2.5em
+	.footer-left
+		padding: 
+	.header__login
+		margin-right: 1.5em
+		&:before
+			left: -1.5em
+			bottom: 0
+	.header__nav a
+		margin: 0.45em
+	.banner-sliders:before, .about-us-sliders:before, .catalog-bg:before,
+		right: 0
+		left: 0
+		width: 100%
+	.catalog
+		.section-title
+			position: relative
+	.header__menu-right-item 
+		padding: 0 0.5em
+	.header__cart
+		margin-right: 1.5em
+		padding: 0
+	.catalog__name 
+    padding: .5625em .8125em
+	.footer iframe
+		margin: 0
+	.footer .filtr-map:after
+		left: 0
+		right: 0
+	.footer__nav-list
+		flex-direction: row
+	.addres ul li
+		padding: 0
+		&:before
+			display: none
+	
+	.addres-barnaul
+		margin-bottom: 1.875em 
+	
+	.footer-social
+		margin-top: 1.875em
+	.copyright
+		background: linear-gradient(to bottom, $w-grey 50%, $d-grey 50%)
+		padding: 0  2.5em
 
+	.copyright-block
+		padding: 1em 0
+		font-size: .9em
 
+	.header__menu-list--left, .header__menu-list--right
+		padding: 0
+	.header__nav 
+		justify-content: flex-end
+	.header__nav-list
+		display: none
+	.header__search, .header__rating
+		display: none
+	.header__cart
+		border-right: none
+	.clients-slider, .brands-slider
+		display: flex
+		flex-wrap: wrap
+	.partners-logo
+		flex: 1 1 50%
+	.catalog__slider
+		width: 125%
+	.footer__nav-list
+		display: none
+	.nav-buttons__item
+		flex: 1 1 100%
+	.filter
+		padding: 0 1.5em
+		display: flex
+		flex-direction: column
+		&__name
+			padding-bottom: 0.625em
+	.section-lk
+		.section-title
 /*==========  Mobile First  ==========*/
 
 // ≤576px
