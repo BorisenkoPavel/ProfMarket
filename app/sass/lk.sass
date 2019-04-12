@@ -259,13 +259,16 @@ main.lk
 			border: 1px solid $accent
 	&-prev, &-next
 		width: 60px
-		height: 11px
-		background-image: url(../img/arrow.png)
-		background-repeat: no-repeat
-		background-size: contain
 		margin: 0 0.625em
 		cursor: pointer
-	&-next
+		svg 
+			use
+				transition: .3s
+		&:hover
+			svg 
+				use
+					fill: $accent
+	&-prev
 		transform: rotate(180deg)
 
 .lk-tab2

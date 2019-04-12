@@ -28,13 +28,16 @@
 
 <body>
 
-<div class="body-container">
+	<div id="header" class="body-container">
 		<div class="header-wrapper">
 			<header class="header">
 				<div class="container">
 					<div class="row">
 						<div class="col-md-4 header__left-block">
-							<a href="/" class="header-logo logo"><div class="logo-icon"><img src="img/logo-icon.png" alt=""></div><div class="logo-text"><img src="img/logo-text.png" alt=""></div></a>
+							<a href="/" class="header-logo logo">
+								<div class="logo-icon"><img src="img/logo-icon.png" alt=""></div>
+								<div class="logo-text"><img src="img/logo-text.png" alt=""></div>
+							</a>
 						</div>
 						<div class="col-md-8 header__right-block">
 							<nav class="header__nav bg-wgrey subtitle2">
@@ -47,19 +50,62 @@
 								<div class="header__login">Личный кабинет</div>
 							</nav>
 							<div class="header__menu">
-								<div class="header__menu-left"><span>Каталог товаров</spa></div>
-								<a href="/" class="header-logo logo"><div class="logo-icon"><img src="img/logo-w.png" alt=""></div></a>
-
-	
+								<div class="header__menu-left"><span>Каталог товаров</spa>
+								</div>
+								<a href="/" class="header-logo logo">
+									<div class="logo-icon"><img src="img/logo-w.png" alt=""></div>
+								</a>
+								<div class="search-label">
+										<div class="search-label__close"><i class="far fa-times"></i></div>
+										<input type="search">
+								</div>
 								<div class="header__menu-right">
+				
 									<div class="header__search header__menu-right-item">
-										<i class="far fa-search"></i>
+
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="21"
+											height="21" viewBox="0 0 21 21">
+											<defs>
+												<path id="4hpva"
+													d="M993.633 79.632a1.24 1.24 0 0 1-1.756 0l-5.315-5.316A8.45 8.45 0 0 1 981.5 76a8.5 8.5 0 1 1 8.5-8.5c0 1.899-.63 3.646-1.683 5.061l5.316 5.316a1.24 1.24 0 0 1 0 1.755zM981.5 61a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13z" />
+											</defs>
+											<g>
+												<g transform="translate(-973 -59)">
+													<use fill="#ad2926" xlink:href="#4hpva" />
+												</g>
+											</g>
+										</svg>
 									</div>
-									<div class="header__rating header__menu-right-item">
-										<i class="far fa-star"></i>
+									<div class="header__rating header__menu-right-item" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
+										<span class='item-count'>4</span>
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="22"
+											height="21" viewBox="0 0 22 21">
+											<defs>
+												<path id="fvswa"
+													d="M1055.992 65.57a2.69 2.69 0 0 0 2.025 1.472l4.462.647-3.223 3.137a2.694 2.694 0 0 0-.776 2.387l.762 4.437-4.008-2.103a2.707 2.707 0 0 0-2.493.003l-4.002 2.1.762-4.436a2.694 2.694 0 0 0-.777-2.389l-3.222-3.135 4.462-.648a2.69 2.69 0 0 0 2.025-1.47l2.002-4.049zm-3.413-5.695l-2.378 4.809a.694.694 0 0 1-.524.38l-5.317.771a1.564 1.564 0 0 0-1.271 1.07 1.56 1.56 0 0 0 .398 1.611l3.847 3.744c.164.16.24.39.2.614l-.907 5.286c-.08.465.042.917.344 1.275a1.596 1.596 0 0 0 1.94.382l4.756-2.496a.71.71 0 0 1 .647 0l4.756 2.496c.231.121.478.183.732.183.465 0 .906-.207 1.209-.565.302-.358.424-.811.343-1.275l-.908-5.286a.694.694 0 0 1 .2-.614l3.848-3.744a1.56 1.56 0 0 0 .398-1.611 1.565 1.565 0 0 0-1.271-1.07l-5.318-.771a.695.695 0 0 1-.523-.38l-2.377-4.81a1.566 1.566 0 0 0-1.412-.875c-.604 0-1.145.336-1.412.876z" />
+											</defs>
+											<g>
+												<g transform="translate(-1043 -59)">
+													<use fill="#ad2926" xlink:href="#fvswa" />
+												</g>
+											</g>
+										</svg>
 									</div>
 									<div class="header__cart header__menu-right-item">
-										<i class="fal fa-shopping-basket"></i>корзина
+										<span class='item-count'>3</span>
+										<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="23"
+											height="20" viewBox="0 0 23 20">
+											<defs>
+												<path id="44d7a"
+													d="M1136.217 70.576l-1.628 8.683a.972.972 0 0 1-.943.742h-16.402a.947.947 0 0 1-.912-.742l-1.58-8.708a1.988 1.988 0 0 1-.752-1.553v-2a2 2 0 0 1 2-1.999h1.517l4.66-4.651c.44-.439 1.128-.463 1.537-.055.409.407.384 1.094-.056 1.533l-3.18 3.173h10.043l-3.18-3.173c-.44-.44-.464-1.126-.055-1.533.409-.408 1.096-.384 1.536.055l4.66 4.651H1135a2 2 0 0 1 2 2v2a1.99 1.99 0 0 1-.783 1.577zm-18.331 7.422h15.097l1.271-7h-17.598zm16.114-11h-17a1 1 0 1 0 0 2h17a1 1 0 1 0 0-2z" />
+											</defs>
+											<g>
+												<g transform="translate(-1114 -60)">
+													<use fill="#ad2926" xlink:href="#44d7a" />
+												</g>
+											</g>
+										</svg>
+										корзина
 									</div>
 								</div>
 							</div>
@@ -75,22 +121,44 @@
 							<li><a href="">Фурнитура для цельностеклянных перегородок</a></li>
 							<li><a href="">Фурнитура оконная<span>21</span></a>
 								<ul class="header__menu-sublist">
-										<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
-										<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
-										<li><a href="">Дистационная рамка, сито, пробка</li></a>
-										<li><a href="">Пистолеты РМТ</li></a>
-									</ul></li>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+								</ul>
+							</li>
 							<li><a href="">Фурнитура дверная<span>21</span></a>
 								<ul class="header__menu-sublist">
-										<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
-										<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
-										<li><a href="">Дистационная рамка, сито, пробка</li></a>
-										<li><a href="">Пистолеты РМТ</li></a>
-									</ul></li>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+								</ul>
+							</li>
 							<li><a href="">Материалы алюминиевых раздвижных систем</a></li>
 							<li><a href="">Материалы для ПВХ дверей</a></li>
 							<li><a href="">Материалы для стеклопакетов<span>21</span></a>
 								<ul class="header__menu-sublist">
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
+									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
+									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
+									<li><a href="">Дистационная рамка, сито, пробка</li></a>
+									<li><a href="">Пистолеты РМТ</li></a>
 									<li><a href="">Герметики для стеклопакетов, первичная герметизация</li></a>
 									<li><a href="">Герметики для стеклопакетов, вторичная герметизация</li></a>
 									<li><a href="">Дистационная рамка, сито, пробка</li></a>
@@ -115,8 +183,8 @@
 				</div>
 			</ul>
 		</div>
-	
-		<main>
+
+		<main id="main">
 			<section class="banner section">
 				<div class="container banner-sliders">
 					<div class="banner__content-slider">
@@ -133,7 +201,7 @@
 									в Алтайском крае
 								</div>
 								<a href="" class="btn">подробнее</a>
-	
+
 							</div>
 						</div>
 						<div class="row banner__item">
@@ -150,11 +218,10 @@
 									продажа оконной и дверной фурнитуры.
 								</div>
 								<a href="" class="btn">подробнее</a>
-	
 							</div>
 						</div>
 					</div>
-	
+
 					<div class="banner__slider">
 						<div class="banner__img">
 							<img src="img/img1.jpg" alt="">
@@ -169,7 +236,7 @@
 					</div>
 				</div>
 			</section>
-	
+
 			<section class="section catalog">
 				<div class="container catalog-bg">
 					<div class="section-title">
@@ -180,7 +247,129 @@
 						</div>
 					</div>
 					<div class="catalog__slider">
-	
+
+						<div class="row">
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"> </div>
+											<div class="catalog-img" style="background-image: url(img/item1.jpg)"></div>
+											<div class="catalog__name subtitle1">
+												Фурнитура дверная
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"></div>
+											<div class="catalog-img" style="background-image: url(img/item2.jpg)"></div>
+											<div class="catalog__name subtitle1">
+												Фурнитура цельностеклянных
+												перегородок
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"> </div>
+											<div class="catalog-img" style="background-image: url(img/item3.jpg)"></div>
+											<div class="catalog__name subtitle1">
+												Материалы для алюминиевых
+												раздвижных систем
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"></div>
+											<div class="catalog-img" style="background-image: url(img/item4.png)"></div>
+											<div class="catalog__name subtitle1">
+												Материалы для ПВХ дверей
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"> </div>
+											<div class="catalog-img" style="background-image: url(img/item5.png)"></div>
+											<div class="catalog__name subtitle1">
+												Фурнитура оконная
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"></div>
+											<div class="catalog-img" style="background-image: url(img/item6.png)"></div>
+											<div class="catalog__name subtitle1">
+												Системы проветривания
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"> </div>
+											<div class="catalog-img" style="background-image: url(img/item7.png)"></div>
+											<div class="catalog__name subtitle1">
+												Метизы
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+							<div class="col-12">
+								<div class='box ratio16_9'>
+									<div class='content-box'>
+										<a href="" class="catalog__item">
+											<div class="catalog__hover-bg"></div>
+											<div class="catalog-img" style="background-image: url(img/item8.png)"></div>
+											<div class="catalog__name subtitle1">
+												Соединители импоста
+											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
+										</a>
+									</div>
+								</div>
+							</div>
+						</div>
 						<div class="row">
 							<div class="col-12">
 								<div class='box ratio16_9'>
@@ -205,6 +394,7 @@
 											<div class="catalog__name subtitle1">
 												Фурнитура дверная
 											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
 										</a>
 									</div>
 								</div>
@@ -220,6 +410,7 @@
 											<div class="catalog__name subtitle1">
 												Фурнитура дверная
 											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
 										</a>
 									</div>
 								</div>
@@ -233,6 +424,7 @@
 											<div class="catalog__name subtitle1">
 												Фурнитура дверная
 											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
 										</a>
 									</div>
 								</div>
@@ -248,6 +440,7 @@
 											<div class="catalog__name subtitle1">
 												Фурнитура дверная
 											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
 										</a>
 									</div>
 								</div>
@@ -261,163 +454,58 @@
 											<div class="catalog__name subtitle1">
 												Фурнитура дверная
 											</div>
+											<div class="shape"><img src="img/shape.svg" alt=""></div>
 										</a>
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row">
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"> </div>
-											<div class="catalog-img" style="background-image: url(img/item1.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"></div>
-											<div class="catalog-img" style="background-image: url(img/item2.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"> </div>
-											<div class="catalog-img" style="background-image: url(img/item1.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"></div>
-											<div class="catalog-img" style="background-image: url(img/item2.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"> </div>
-											<div class="catalog-img" style="background-image: url(img/item1.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"></div>
-											<div class="catalog-img" style="background-image: url(img/item2.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"> </div>
-											<div class="catalog-img" style="background-image: url(img/item1.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-							<div class="col-12">
-								<div class='box ratio16_9'>
-									<div class='content-box'>
-										<a href="" class="catalog__item">
-											<div class="catalog__hover-bg"></div>
-											<div class="catalog-img" style="background-image: url(img/item2.jpg)"></div>
-											<div class="catalog__name subtitle1">
-												Фурнитура дверная
-											</div>
-										</a>
-									</div>
-								</div>
-							</div>
-						</div>
-	
+
 					</div>
 				</div>
 			</section>
-	
+
 			<section class="section change">
 				<div class="container">
 					<div class="h1">Нас выбирают</div>
 					<div class="row change-list">
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay1 revealator-once">
 							<div class="change-icon"><img src="img/1.png" alt=""></div>
 							<div class="change-text body">12 лет на рынке фурнитуры
 								и комплектующих для окон
 								и дверей</div>
 						</div>
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay2 revealator-once">
 							<div class="change-icon"><img src="img/2.png" alt=""></div>
 							<div class="change-text body">Офис и склад нашей компании
 								расположены на одной
 								площадке</div>
 						</div>
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay3 revealator-once">
 							<div class="change-icon"><img src="img/3.png" alt=""></div>
 							<div class="change-text body">Основной принцип работы
 								с клиентами является
 								индивидуальный подх</div>
 						</div>
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay4 revealator-once">
 							<div class="change-icon"><img src="img/4.png" alt=""></div>
 							<div class="change-text body">Выгодные условия работы
 								с постоянными клиентами:
 								скидки, акции и т.д.</div>
 						</div>
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay5 revealator-once">
 							<div class="change-icon"><img src="img/5.png" alt=""></div>
 							<div class="change-text body">На складе всегда в наличии
 								большой ассортимент
 								товаров</div>
 						</div>
-						<div class="col-md-4 col-sm-6 change-item">
+						<div
+							class="col-md-4 col-sm-6 change-item revealator-slideleft revealator-once revealator-delay6 revealator-once">
 							<div class="change-icon"><img src="img/6.png" alt=""></div>
 							<div class="change-text body">Заказ можно отправить
 								по факсу, электронной почте
@@ -426,68 +514,63 @@
 					</div>
 				</div>
 			</section>
-	
+
 			<section class="section about-us">
 				<div class="container">
 					<div class="row">
-							<div class="container about-us-sliders">
-								<div class="about-us__content-slider">
-									<div class="row about-us__item">
-										<div class="col-md-4 col-sm-6 offset-md-8 offset-sm-6 about-us__content">
-											<div class="h1 about-us__title">
-												О компании
-											</div>
-											<div class="about-us__text">
+						<div class="container about-us-sliders">
+							<div class="about-us__content-slider">
+								<div class="row about-us__item">
+									<div class="col-md-4 col-sm-6 offset-md-8 offset-sm-6 about-us__content">
+										<div class="h1 about-us__title">
+											О компании
+										</div>
+										<div class="about-us__text ">
 											<p class='about-us__text-header'>
-													ПрофМаркет успешно 
-													работает уже много лет
-													с клиентами и партнерами 
-													по всему Сибирскому 
-													Федеральному округу
+												ПрофМаркет успешно
+												работает уже много лет
+												с клиентами и партнерами
+												по всему Сибирскому
+												Федеральному округу
 											</p>
-												Приглашаем к сотрудничеству
-												новых партнеров на выгодных
-												условиях, подробнее по телефону: <br>
-												+7 (913) 210-45-10
-											</div>
-											<div class="nav-container black">
-												<div id="prev1" class="prev prev-about-us"><i class="fal fa-angle-left"></i></div>
-												<div id="next1" class="next next-about-us"><i class="fal fa-angle-right"></i></div>
-											</div>
-										</div>
-									</div>
-									<div class="row about-us__item">
-										<div class="col-md-4 col-sm-6 offset-md-8 offset-sm-6 about-us__content">
-											<div class="h3 about-us__title">
-												Комплектующие
-												и фурнитура для окон
-												и дверей
-											</div>
-											<div class=" about-us__text">
-												Основное направление деятельности компании — оптовая
-												продажа оконной и дверной фурнитуры.
-												Основное направление деятельности компании — оптовая
-												продажа оконной и дверной фурнитуры.
-											</div>
-											<div class="nav-container black">
-												<div id="prev1" class="prev prev-about-us"><i class="fal fa-angle-left"></i></div>
-												<div id="next1" class="next next-about-us"><i class="fal fa-angle-right"></i></div>
-											</div>
+											Приглашаем к сотрудничеству
+											новых партнеров на выгодных
+											условиях, подробнее по телефону: <br>
+											+7 (913) 210-45-10
 										</div>
 									</div>
 								</div>
-	
-								<div class="about-us__slider">
-									<div class="about-us__img">
-										<img src="img/about-us.jpg" alt="">
+								<div class="row about-us__item">
+									<div class="col-md-4 col-sm-6 offset-md-8 offset-sm-6 about-us__content">
+										<div class="h3 about-us__title">
+											Комплектующие
+											и фурнитура для окон
+											и дверей
+										</div>
+										<div class=" about-us__text ">
+											Основное направление деятельности компании — оптовая
+											продажа оконной и дверной фурнитуры.
+											Основное направление деятельности компании — оптовая
+											продажа оконной и дверной фурнитуры.
+										</div>
 									</div>
 								</div>
-	
 							</div>
+
+							<div class="about-us__slider">
+								<div class="about-us__img">
+									<img src="img/about-us.jpg" alt="">
+								</div>
+							</div>
+							<div class="nav-container black">
+								<div id="prev1" class="prev prev-about-us"><i class="fal fa-angle-left"></i></div>
+								<div id="next1" class="next next-about-us"><i class="fal fa-angle-right"></i></div>
+							</div>
+						</div>
 					</div>
 				</div>
 			</section>
-	
+
 			<section class="section partners">
 				<div class="container">
 					<div class="row">
@@ -539,17 +622,17 @@
 						</div>
 						<div class="col-md-2 col-sm-12 partners-right">
 							<div class="h1">Бренды</div>
-						<div class="brands-slider">
+							<div class="brands-slider">
 								<div class="partners-logo"><img src="img/partners/p-logo(1).png" alt="">
 								</div>
 								<div class="partners-logo"><img src="img/partners/p-logo(22).png" alt=""></div>
 								<div class="partners-logo"><img src="img/partners/p-logo(23).png" alt=""></div>
-						</div>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-	
+
 			<section class="section director">
 				<div class="container">
 					<div class="row">
@@ -557,8 +640,8 @@
 							<div class="director-photo"></div>
 						</div>
 						<div class="col-md-6 col-sm-12">
-								<div class="director-content--wrapper">
-							<div class="director-title h1">От первого лица</div>
+							<div class="director-content--wrapper">
+								<div class="director-title h1">От первого лица</div>
 								<div class="director-content">
 									<div class="director-info">
 										<div class="director-photo--small"></div>
@@ -584,30 +667,30 @@
 								</div>
 								<form class="form-main" enctype="multipart/form-data" method="post">
 									<div class="h1">Задайте мне вопрос</div>
-										<div class="label__name-container">
-											<label for="form-name">Представьтесь пожалуйста</label>
-											<input id="form-name" class="label__name input-text" type="text">
-										</div class>
-										<div class="input-wrapper">
-											<div class="label__mail-container">
-												<label for="form-mail">Email</label>
-												<input id="form-mail" class="label__mail input-text" type="text">
-											</div>
-											<div class="label__phone-container">
-												<label for="form-phone" class="label__phone">Телефон</label>
-												<input id="form-phone" class="input-text" type="text">
-											</div>
+									<div class="label__name-container">
+										<label for="form-name">Представьтесь пожалуйста</label>
+										<input id="form-name" class="label__name input-text" type="text">
+									</div class>
+									<div class="input-wrapper">
+										<div class="label__mail-container">
+											<label for="form-mail">Email</label>
+											<input id="form-mail" class="label__mail input-text" type="text">
 										</div>
-										<div class="label__text-container">
-											<label class="label__text" for="label__text">Расскажите немного о вашем проекте</label>
-											<textarea class="js-auto-size input-text" id="label__text" rows="1"></textarea>
+										<div class="label__phone-container">
+											<label for="form-phone" class="label__phone">Телефон</label>
+											<input id="form-phone" class="input-text" type="text">
 										</div>
-										<div class="submit-container">
-												<button class="btn form-button">Отправить</button>
-											<div class="accept">Нажимая кнопку «Отправить», вы соглашаетесь 
-												с <a class="red link" href="">условиями пользовательского соглашения</a></div>
-										</div>
-									</form>
+									</div>
+									<div class="label__text-container">
+										<label class="label__text" for="label__text">Расскажите немного о вашем проекте</label>
+										<textarea class="js-auto-size input-text" id="label__text" rows="1"></textarea>
+									</div>
+									<div class="submit-container">
+										<button class="btn form-button">Отправить</button>
+										<div class="accept">Нажимая кнопку «Отправить», вы соглашаетесь
+											с <a class="red link" href="">условиями пользовательского соглашения</a></div>
+									</div>
+								</form>
 								<div class="form-angle"></div>
 							</div>
 						</div>
@@ -616,73 +699,96 @@
 			</section>
 		</main>
 
-			<footer class="footer">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-6 col-sm-12 footer-left">
-							<a href="/" class="footer-logo logo"><img src="img/logo-w.png" alt=""></a>
-							<div class="row footer-content">
-								<div class="col-md-6 col-sm-3 order-1 order-sm-0">
-									<ul class="footer__nav-list">
-										<li><a href="">О компании</a></li>
-										<li><a href="">Партнерам</a></li>
-										<li><a href="">Новости</a></li>
-										<li><a href="">Контакты</a></li>
-									</ul>
-									<div class="footer-social">
-										<a href="" class="footer-ista social"><i class="fab fa-instagram"></i></a>
-										<a href="" class="footer-vk social"><i class="fab fa-vk"></i></a>
-									</div>
+		<footer class="footer">
+			<div class="container">
+				<div class="row">
+					<div class="col-md-6 col-sm-12 footer-left">
+						<a href="/" class="footer-logo logo"><img src="img/logo-w.png" alt=""></a>
+						<div class="row footer-content">
+							<div class="col-md-4 col-sm-3 order-1 order-sm-0">
+								<ul class="footer__nav-list">
+									<li><a href="">О компании</a></li>
+									<li><a href="">Партнерам</a></li>
+									<li><a href="">Новости</a></li>
+									<li><a href="">Контакты</a></li>
+								</ul>
+								<div class="footer-social">
+									<a href="" class="footer-ista social"><svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="18" height="18" viewBox="0 0 18 18">
+											<defs>
+												<path id="xrnda"
+													d="M226.002 3611.624v6.751a5.627 5.627 0 0 1-5.626 5.626h-6.752a5.627 5.627 0 0 1-5.626-5.626v-6.751a5.627 5.627 0 0 1 5.626-5.627h6.752a5.627 5.627 0 0 1 5.626 5.627zm-5.401 3.375c0-1.986-1.616-3.6-3.601-3.6a3.605 3.605 0 0 0-3.601 3.6c0 1.985 1.616 3.601 3.6 3.601 1.986 0 3.602-1.616 3.602-3.6zm.139-4.956a1.216 1.216 0 1 0 2.432 0 1.216 1.216 0 0 0-2.432 0z" />
+											</defs>
+											<g>
+												<g transform="translate(-208 -3606)">
+													<use fill="gray" xlink:href="#xrnda" />
+												</g>
+											</g>
+										</svg></a>
+									<a href="" class="footer-vk social"><svg xmlns="http://www.w3.org/2000/svg"
+											xmlns:xlink="http://www.w3.org/1999/xlink" width="20" height="11" viewBox="0 0 20 11">
+											<defs>
+												<path id="qtk5a"
+													d="M272.821 3619.724c-.054-.086-.386-.776-1.986-2.195-1.675-1.486-1.45-1.244.567-3.814 1.23-1.564 1.72-2.52 1.567-2.929-.147-.389-1.05-.286-1.05-.286l-3.006.017s-.222-.03-.388.065c-.162.094-.265.308-.265.308s-.477 1.211-1.112 2.241c-1.338 2.173-1.875 2.288-2.093 2.152-.51-.314-.382-1.263-.382-1.937 0-2.105.334-2.983-.651-3.21-.328-.075-.568-.126-1.404-.134-1.072-.01-1.981.004-2.495.243-.342.16-.606.518-.445.538.199.025.649.116.888.427.308.4.297 1.3.297 1.3s.178 2.479-.414 2.787c-.406.211-.962-.22-2.156-2.192-.611-1.01-1.074-2.126-1.074-2.126s-.089-.208-.247-.32a1.283 1.283 0 0 0-.463-.177l-2.857.017s-.43.012-.587.19c-.14.159-.01.486-.01.486s2.237 5 4.77 7.522c2.323 2.311 4.96 2.16 4.96 2.16h1.196s.361-.039.545-.229c.17-.174.163-.501.163-.501s-.023-1.533.722-1.758c.734-.222 1.676 1.48 2.675 2.136.755.496 1.329.387 1.329.387l2.671-.036s1.398-.082.735-1.132z" />
+											</defs>
+											<g>
+												<g transform="translate(-253 -3610)">
+													<use fill="gray" xlink:href="#qtk5a" />
+												</g>
+											</g>
+										</svg></i></a>
 								</div>
-								<div class="col-md-6 col-sm-9">
-									<div class="addres">
-										<div class="row">
-											<div class="addres-barnaul col-12 col-sm-6 col-md-12">
-												<div class="addres-title">Офис в барнауле</div>
-												<ul>
-													<li>ул. Автотранспортная, 39</li>
-													<li>+7 (913) 210-45-10</li>
-													<li><a href="mailto:info@profmarketsib.ru">info@profmarketsib.ru</a></li>
-												</ul>
-											</div>
-											<div class="addres-novosib col-12 col-sm-6 col-md-12">
-												<div class="addres-title">Офис в НОВОСИБИРСКЕ</div>
-												<ul>
-													<li>Новосибирск, Писемского, 24/2</li>
-													<li>+7 (383) 213–89–92</li>
-													<li><a href="mailto:nsk@profmarketsib.ru">nsk@profmarketsib.ru</a></li>
-												</ul>
-											</div>
+							</div>
+							<div class="col-md-8 col-sm-9">
+								<div class="addres">
+									<div class="row">
+										<div class="addres-city active col-12 col-sm-6 col-md-12">
+											<div class="addres-title">Офис в барнауле</div>
+											<ul>
+												<li>ул. Автотранспортная, 39</li>
+												<li>+7 (913) 210-45-10</li>
+												<li><a href="mailto:info@profmarketsib.ru">info@profmarketsib.ru</a></li>
+											</ul>
+										</div>
+										<div class="addres-city col-12 col-sm-6 col-md-12">
+											<div class="addres-title">Офис в НОВОСИБИРСКЕ</div>
+											<ul>
+												<li>Новосибирск, Писемского, 24/2</li>
+												<li>+7 (383) 213–89–92</li>
+												<li><a href="mailto:nsk@profmarketsib.ru">nsk@profmarketsib.ru</a></li>
+											</ul>
 										</div>
 									</div>
 								</div>
-	
 							</div>
-	
-	
-	
+
 						</div>
-						<div class="col-md-6 col-sm-12 filtr-map">
-							<iframe
-								src="https://yandex.ru/map-widget/v1/?um=constructor%3A0978855b49319ae769b424afe50fc3cb763ce3a0bb1e63f10c2ad05f2474b233&amp;source=constructor"
-								width="100%" height="100%" frameborder="0"></iframe>
-						</div>
+
+
+
+					</div>
+					<div class="col-md-6 col-sm-12 filtr-map">
+						<iframe
+							src="https://yandex.ru/map-widget/v1/?um=constructor%3A0978855b49319ae769b424afe50fc3cb763ce3a0bb1e63f10c2ad05f2474b233&amp;source=constructor"
+							width="100%" height="100%" frameborder="0"></iframe>
 					</div>
 				</div>
-				<div class="container-fluid copyright">
-					<div class="container">
-						<div class="row ">
-							<div class="col-6 col-sm-3 copyright-block">© ПрофМаркет, 2006-2019</div>
-							<div class="col-6 col-sm-3 copyright-block"><a href="" class="red link">Политика конфиденциальности</a></div>
-							<a href="" class="col-12 col-sm-6 copyright-block white e1media link">Разработка сайта — E1Media</a>
+			</div>
+			<div class="container-fluid copyright">
+				<div class="container">
+					<div class="row ">
+						<div class="col-6 col-sm-3 copyright-block">© ПрофМаркет, 2006-2019</div>
+						<div class="col-6 col-sm-3 copyright-block"><a href="" class="red link">Политика конфиденциальности</a>
 						</div>
+						<a href="" class="col-12 col-sm-6 copyright-block white e1media link">Разработка сайта — E1Media</a>
 					</div>
 				</div>
-			</footer>
-	
+			</div>
+		</footer>
+		<a class="go-top" href="#header"><i class="fal fa-angle-up"></i></a>
 		<script src="js/scripts.min.js"></script>
 		<div class="bg-dark"></div>
-</div>
+	</div>
 </body>
 
 </html>

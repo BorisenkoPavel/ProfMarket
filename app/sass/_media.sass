@@ -120,6 +120,8 @@
 		width: 200%
 	.nav-buttons__item
 		flex: 1 1 40%
+	.about-us .nav-container
+		left: calc(50% + 2.5rem)
 // ≥576px
 +media-breakpoint-down(xs)
 	.about-us__text
@@ -208,7 +210,7 @@
 	.partners-logo
 		flex: 1 1 50%
 	.catalog__slider
-		width: 125%
+		width: 100%
 	.footer__nav-list
 		display: none
 	.nav-buttons__item
@@ -221,6 +223,17 @@
 			padding-bottom: 0.625em
 	.section-lk
 		.section-title
+	.catalog__slider
+		.slick-list
+			position: relative
+			&:after
+				display: none
+	.about-us .nav-container
+		left: 2.5rem
+	.addres
+		padding: 0
+		&:before
+			display: none
 /*==========  Mobile First  ==========*/
 
 // ≤576px

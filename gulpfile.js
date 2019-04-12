@@ -42,7 +42,9 @@ gulp.task('scripts', function() {
 		'app/libs/flowtype.js',
 		'app/libs/Formstone/js/core.js',
 		'app/libs/Formstone/js/sticky.js',
-		'app/libs/bootstrap/js/bootstrap.min.js',
+		'app/libs/popper.js/js/util.js',
+		'app/libs/bootstrap/js/bootstrap.bundle.min.js',
+		'app/libs/revealator/revealator.min.js',
 		'app/js/common.js', // Always at the end
 		])
 	.pipe(concat('scripts.min.js'))

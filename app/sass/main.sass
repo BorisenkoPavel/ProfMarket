@@ -8,6 +8,8 @@
 ::selection
 	background-color: $accent
 	color: #fff
+
+
 html
 body
 	font-size: 1rem
@@ -16,9 +18,9 @@ body
 	font-family: $d-font
 	color: $text
 	margin: auto
-	input, textarea
+	input, textarea, select, button, option
 		border: #666 1px solid
-		outline: none
+		outline: none!important
 		&:focus:required:invalid
 			border-color: red
 		&:required:valid
@@ -42,6 +44,9 @@ body
 
 .text-center
 	text-align: center
+
+p 
+	margin-bottom: .5em
 
 b, strong
 	font-weight: bold
@@ -81,19 +86,36 @@ h1,.h1,h2,.h2,h5,.h5
 	font-weight: 500
 
 .caption
-	font-size: 0.75em
+	font-size: 0.875rem
 	letter-spacing: 0.4
+	color: $grey
+	font-family: $a-font
+	font-weight: 400
 
 .overline
-	font-size: 0.625em
+	font-size: 0.875rem
 	letter-spacing: 1.5
 	text-transform: uppercase
+	font-family: $a-font
+	font-weight: 700
+
 
 .body
 	color: $d-grey
 	
 .body2
 	font-size: 0.875em
+
+.link-accent
+	color: $accent
+	border-bottom: 1px dashed $accent	
+	font-size: 0.875rem
+	cursor: pointer
+	&:hover
+		color: $accent
+		border-bottom: 1px dashed transparent
+		text-decoration: none
+
 
 .link
 	&:hover
@@ -172,10 +194,18 @@ h1,.h1,h2,.h2,h5,.h5
 .red
 	color: $accent
 
+.dgrey
+	color: $d-grey
+
+.grey
+	color: grey
+
 .white
 	color: #fff
+
 .dark
 	color: $text
+
 
 
 .bg-red
@@ -203,13 +233,13 @@ h1,.h1,h2,.h2,h5,.h5
 .nav-container.black
 	.next, .prev
 		i
-			color: $text
+			color: $d-grey
 			transition: .3s
 		&:hover
 			i 
 				color: $accent
 	.next:before
-		background-color: $text
+		background-color: $d-grey
 .nav-container
 	display: flex
 	align-items: center
@@ -291,35 +321,31 @@ h1,.h1,h2,.h2,h5,.h5
 	justify-content: space-between
 
 .header-wrapper
-	position: fixed
-	top: 0
-	right: 0
-	left: 0
 	background-color: #fff
-	z-index: 9999
-	&--small
-		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3)
-		.header__nav
-			font-size: 0
-			padding: 0
-		.header__left-block
-			flex: 0 0 4%
-			max-width: 4%
-		.header__right-block
-			flex: 1 1 96%
-			max-width: 96%
-		.header__menu-left
-			padding: 0.75em 1.5625em
-		.logo
-			display: flex
-			&-icon
-				img 
-					max-height: 2.5em
-					width: 100%
-					object-fit: contain
-			&-text
-				width: 0
-				margin-right: 0
+	position: relative
+	// &--small
+	// 	box-shadow: 0 0 7px rgba(0, 0, 0, 0.3)
+	// 	.header__nav
+	// 		font-size: 0
+	// 		padding: 0
+	// 	.header__left-block
+	// 		flex: 0 0 4%
+	// 		max-width: 4%
+	// 	.header__right-block
+	// 		flex: 1 1 96%
+	// 		max-width: 96%
+	// 	.header__menu-left
+	// 		padding: 0.75em 1.5625em
+	// 	.logo
+	// 		display: flex
+	// 		&-icon
+	// 			img 
+	// 				max-height: 2.5em
+	// 				width: 100%
+	// 				object-fit: contain
+	// 		&-text
+	// 			width: 0
+	// 			margin-right: 0
 		
 .header
 	position: relative
@@ -355,6 +381,24 @@ h1,.h1,h2,.h2,h5,.h5
 		padding: 0
 		margin: 0
 		display: flex
+		a 
+			text-decoration: none
+			position: relative
+			&:hover
+				&:before
+					width: 100%
+			&:before
+				content: ''
+				transition: .3s
+				width: 0
+				height: 1px
+				left: 0
+				right: 0
+				background-color: $grey
+				margin: auto
+				position: absolute
+				bottom: 0
+
 	&__login
 		cursor: pointer
 		position: relative
@@ -374,6 +418,8 @@ h1,.h1,h2,.h2,h5,.h5
 	&__menu
 		display: flex
 		justify-content: space-between
+		position: relative
+		overflow: hidden
 		.logo
 			align-self: center
 			margin-left: 0.75em
@@ -408,7 +454,34 @@ h1,.h1,h2,.h2,h5,.h5
 			&:last-of-type
 				border-bottom: none
 	
-	
+	.search-label.active
+		transform: translate(0)
+	.search-label
+		flex: 1 1
+		width: 100%
+		display: flex
+		position: relative
+		margin-left: 1.25rem
+		transform: translatex(103%)
+		transition: .4s ease
+		&__close
+			position: absolute
+			padding: 0 0.9375rem
+			display: flex
+			align-items: center
+			top: 0
+			bottom: 0
+			background-color: rgba(234, 155, 153, .5)
+			color: #fff
+			cursor: pointer
+		input
+			width: 100%
+			border: none
+			background-color: $accent
+			color: #fff
+			padding-left: 3.125rem
+			font-family: $d-font
+			font-size: 0.875rem
 
 	&__menu-list--left
 		padding-right: 1.1875em
@@ -461,19 +534,62 @@ h1,.h1,h2,.h2,h5,.h5
 		justify-content: space-between
 		align-items: center
 		color: $accent
+		background-color: #fff
+		z-index: 30
+		&-item.header__search
+			&:hover, &.active
+				background-color: $accent
+				svg
+					use
+						fill: #fff
 		&-item
-			border-right: 1px solid #ccc
 			line-height: 2em
 			padding: 0 1.5em
 			cursor: pointer
+			display: flex
+			align-items: center
+			height: 100%
+			transition: .3s
+			position: relative
+			&:hover
+				background-color: $w-grey
+				&:before
+					opacity: 0
+			&:before
+				content: ''
+				position: absolute
+				right: -1px
+				height: 65%
+				top: 0
+				bottom: 0
+				margin: auto
+				background-color: $w-grey
+				width: 1px
+				transition: 
+	.item-count
+		width: 1.375rem
+		height: 1.375rem
+		background-color: #1a1a1a
+		color: #ffffff
+		font-family: "PT Sans"
+		font-size: 0.75rem
+		font-weight: 700
+		border-radius: 50%
+		position: absolute
+		left: 2.1875rem
+		top: 0.375rem
+		text-align: center
+		line-height: 1.375rem
+	&__rating
+		position: relative
 	&__cart
 		font-size: 0.875em
 		font-weight: 700
 		text-transform: uppercase
 		flex: 0 0 auto
-		i 
-			font-size: 1.125em
-			margin-right: 10px
+		position: relative
+		svg
+			margin-right: 0.875rem
 	&__menu-left
 		text-transform: uppercase
 		font-size: 0.875em
@@ -541,13 +657,20 @@ h1,.h1,h2,.h2,h5,.h5
 			width: 100%
 			object-position: 50% 50%
 	&__title
+		opacity: 0
+		animation-delay: .1s
 	&__text
 		margin-bottom: 1.6875em
+		opacity: 0
+		animation-delay: .2s
 	&__content
 		color: #fff
 		height: 530px
 		position: relative
 		padding: 5em 2.5em
+	.btn
+		opacity: 0
+		animation-delay: .3s
 
 main
 	height: 100%
@@ -625,14 +748,17 @@ main
 			margin-left: 25%
 			width: 100%
 			justify-content: flex-start
-		.slick-list:before
-			position: absolute
-			top: 80px
-			bottom: 45px
-			left: 100%
-			width: 500%
-			background-color: rgba(255,255,255, .4)
-			z-index: 50
+		.slick-list
+			position: relative
+			&:after
+				content: ''
+				position: absolute
+				background-color: rgba(255,255,255, .4)
+				top: 0
+				bottom: 0
+				right: 0
+				left: 60%
+				z-index: 200
 	&-bg
 		position: relative
 		&:before
@@ -722,6 +848,8 @@ main
 		color: $text
 		font-family: $a-font
 		font-weight: 700
+		opacity: 0
+		animation-delay: .1s
 	&__text
 		margin-bottom: 1.6875em
 		font-size: 0.875em
@@ -729,19 +857,23 @@ main
 		font-family: $d-font
 		font-weight: 400
 		max-width: 14.0625em
+		opacity: 0
+		animation-delay: .2s
 
 		&-header
 			color: $text
 			font-size: 1.125em
+			font-weight: 700
 	&__content
 		color: $text
 		height: 530px
 		position: relative
 		padding: 5em 2.5em 2.5em
-		.nav-container
-			width: 100%
-			position: absolute
-			bottom: 2.5em
+	.nav-container
+		position: absolute
+		z-index: 500
+		bottom: 2.5em
+		left: calc(66.7% + 2.5rem)
 
 .partners
 	padding-bottom: 5em
@@ -856,7 +988,7 @@ main
 			content: ''
 			position: absolute
 			width: 0.0625rem
-			top: -0.0938rem
+			top: -0.1655rem
 			bottom: 0
 			left: -2rem
 			background-color: #fff
@@ -972,16 +1104,44 @@ main
 		text-transform: uppercase
 		font-weight: bold
 		margin-bottom: 1.875em
+		height: 8.1875rem
 		a
 			color: $accent
 			line-height: 2
+			position: relative
+			&:before
+				content: ''
+				transition: .3s
+				width: 0
+				height: 1px
+				left: 0
+				right: 0
+				background-color: $accent
+				margin: auto
+				position: absolute
+				bottom: 0
 			&:hover
 				text-decoration: none
+				&:before
+					width: 100%
 	&-social 
 		.social
+			transition: .3s
+			position: relative
+			svg
+				position: absolute
+				left: 0
+				right: 0
+				bottom: 0
+				top: 0
+				margin: auto
+				use
+					transition: .3s
 			&:hover
-				i 
-					color: $accent
+				background-color: $accent
+				svg
+					use
+						fill: #fff
 	&-content
 		margin-bottom: 3.4375em
 	&-vk
@@ -1005,15 +1165,25 @@ main
 	line-height: 2
 	font-size: 0.875em
 	align-self: auto
+	padding-left: 1.875rem
+	position: relative
+	&:before
+		content: ''
+		width: 1px
+		height: 100%
+		background-color: $w-grey
+		left: 0
+		position: absolute
 	a 
 		color: $text
 	&-title
 		text-transform: uppercase
 		text-transform: uppercase
 		font-weight: bold
-		color: $accent
+		font-family: $a-font
+		color: $text
+		transition: .3s
 		&:first-of-type
-			color: $d-grey
 	ul
 		list-style: none
 		padding-left: 0
@@ -1021,6 +1191,7 @@ main
 		li
 			position: relative
 			padding-left: 1.5em
+			color: $d-grey
 			&:before
 				content: ''
 				height: 1px
@@ -1031,6 +1202,12 @@ main
 				bottom: 0
 				margin: auto
 				position: absolute
+	&-city
+		cursor: pointer
+		margin-bottom: 0.9375rem
+	&-city.active, &-city:hover
+		.addres-title
+			color: $accent
 .copyright
 	padding: 14px 0
 	font-size: 0.75em
@@ -1053,6 +1230,44 @@ main
 	mix-blend-mode: multiply
 .bg-dark.active
 	display: block
+
+.go-top
+	bottom: 50px
+	right: 50px
+	position: fixed
+	z-index: 500
+	line-height: 40px
+	display: none
+	border: 2px solid $grey
+	cursor: pointer
+	color: $text
+	border-radius: 50%
+	font-family: "PT Sans"
+	font-size: 24px
+	font-weight: 700
+	text-transform: uppercase
+	margin: 0 0.625em
+	width: 40px
+	height: 40px
+	line-height: 39px
+	text-align: center
+	&:hover
+		background-color: $accent
+		color: #ffffff
+.tooltip-inner 
+	background-color: $w-grey
+
+.tooltip.bs-tooltip-right .inner:before 
+	border-right-color: $w-grey !important
+
+.tooltip.bs-tooltip-left .inner:before 
+	border-right-color: $w-grey !important
+
+.tooltip.bs-tooltip-bottom .inner:before 
+	border-right-color: $w-grey !important
+
+.tooltip.bs-tooltip-top .inner:before 
+	border-right-color: $w-grey !important
 
 
 @import "media" // Always at the end

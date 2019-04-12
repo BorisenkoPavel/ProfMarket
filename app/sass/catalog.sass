@@ -8,7 +8,7 @@
 		padding-top: 1.25rem
 		li 
 			list-style: none
-			padding: 0.1875rem 0.9375rem
+			padding: 0.1175rem 0.9375rem
 			margin-right: 10px
 			&:last-child:after
 				content: ''
@@ -25,3 +25,207 @@
 		li.active
 			a	
 				
+.sorting
+	margin-bottom: 20px
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	&__buttons
+	&__button
+		cursor: pointer
+		&:hover, &.active
+			color: #ffffff
+			background-color: $accent
+			border: 1px solid $accent
+	&__icons
+		display: flex
+	&__icon
+		width: 50px
+		border-left: 1px solid $grey
+		border-right: 1px solid $grey
+		color: $grey
+		text-align: center
+		cursor: pointer
+		&:hover, &.active
+			color: $accent
+	&__icon--1
+		font-size: 1.125rem
+		margin-right: -1px
+	&__icon--2
+		font-size: 1.25rem
+		line-height: 1.35
+		font-weight: 700
+
+.catalog-list
+.catalog-card.rated
+	&:before
+		border-bottom: 3.125rem solid grey
+	.catalog-card__rating
+		color: #fff
+		i
+			font-weight: 800
+.catalog-card
+	padding: 1.25rem 1.25rem 2.5rem 
+	background-color: #fff
+	position: relative
+	margin: 0 0.5px
+	cursor: pointer
+	transition: .3s
+	height: 100%
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	overflow: hidden
+	&__container
+		margin-bottom: 1px
+	&:hover
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3)
+		z-index: 300
+	&:before
+		content: ''
+		position: absolute
+		width: 3.125rem
+		height: 3.125rem
+		top: -3.125rem
+		right: -3.125rem
+		border: 3.125rem solid transparent
+		border-bottom: 3.125rem solid #fff
+		transform: rotate(45deg)
+		z-index: 10
+	&__rating
+		position: absolute
+		top: 0.625rem
+		right: 0.625rem
+		color: grey
+		z-index: 15
+	.box
+		margin-bottom: 0.9375rem
+	&__img
+		background-repeat: no-repeat
+		background-position: center
+		background-size: cover
+	&__name-container
+		width: 100%
+
+	&__name
+		margin-bottom: 0.625rem
+		align-self: flex-end
+	&__price
+		font-size: 1.75rem
+		color: $accent
+		font-family: $a-font
+		font-weight: 700
+		width: 100%
+		align-self: flex-end
+
+.section-seo
+	background-color: #fff
+
+.aside
+	padding-right: 2.5rem
+.catalog-filter
+	background-color: #fff
+	padding: 1.5rem 1.25rem
+	&__item
+		margin-bottom: 2.1875rem
+		.link-accent
+			margin-left: 1.75rem
+	&__inputs--cbx
+		flex-direction: column 
+		max-height: 12.5rem
+		overflow: auto
+		margin-bottom: 0.9375rem
+	&__inputs
+		display: flex
+		margin-top: 0.9375rem
+	&__input.catalog-filter__input--ot
+		&:before
+			content: 'От'
+	&__input.catalog-filter__input--do
+		margin-left: 0.625rem
+		&:before
+			content: 'До'
+	&__input
+		position: relative
+		margin-bottom: 0
+		input, select
+			padding-left: 1.7625rem
+			font-size: 0.875rem
+			color: grey
+			line-height: 2.625rem
+			border: 1px solid #cccccc
+			width: 100%
+		&:before
+			position: absolute
+			left: 0.5625rem
+			font-family: $a-font
+			font-size: 0.875rem
+			line-height: 0.875rem
+			vertical-align: bottom
+			color: grey
+			top: 0
+			bottom: 0
+			height: 1rem
+			margin: auto
+			
+.label-cbx
+	user-select: none
+	cursor: pointer
+	margin-bottom: 0
+	input:checked
+		& + .checkbox
+			border-color: $accent
+			background-color: $accent
+			svg
+				path
+					fill: $accent
+				polyline
+					stroke-dashoffset: 0
+	&:hover
+		.checkbox
+			svg
+				path
+					stroke-dashoffset: 0
+
+	.checkbox
+		position: relative
+		top: 2px
+		float: left
+		margin-right: 8px
+		width: 20px
+		height: 20px
+		border: 1px solid #C8CCD4
+		svg
+			position: absolute
+			top: -1px
+			left: -1px
+			path
+				fill: none
+				stroke: $accent
+				stroke-width: 2
+				stroke-linecap: square
+				stroke-linejoin: square
+				stroke-dasharray: 71px
+				stroke-dashoffset: 71px
+				transition: all .6s ease
+			polyline
+				fill: none
+				stroke: #FFF
+				stroke-width: 2
+				stroke-linecap: square
+				stroke-linejoin: square
+				stroke-dasharray: 18px
+				stroke-dashoffset: 18px
+				transition: all .3s ease
+
+	> span
+		pointer-events: none
+		vertical-align: middle
+		font-size: 14px
+		color: grey
+.invisible
+	position: absolute
+	z-index: -1
+	width: 0
+	height: 0
+	opacity: 0
