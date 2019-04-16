@@ -17,7 +17,8 @@
 
 // ≥992px
 +media-breakpoint-down(md)
-
+	.body-container.active
+		margin-left: 0
 	.your-orders__col--date, .your-orders__col--summ, .your-orders__col--document
 		flex: 0 0 15%
 	.your-orders__col--status
@@ -34,7 +35,14 @@
 			display: none
 	.form-tab2
 		padding: 2.5em 1.5em
-
+	.header__menu-left
+		span
+			display: none
+	.header__menu-left:before
+		padding-right: 0	
+		font-size: 1.5em
+	.hamburger 
+		margin-right: 0
 // ≥768px
 +media-breakpoint-down(sm)
 	.about-us-sliders:before, .banner-sliders:before
@@ -45,13 +53,12 @@
 		left: 50%
 	.catalog-bg:before
 		width: calc((100vw - 100%)/ 2 + 50%)
+	
+	.footer-left
+		margin-left: 0
+	.hamb
+		height: 100%
 
-
-	.header__menu-left
-		padding: 1em 1.45em
-	.header__menu-left:before
-		padding-right: 0	
-		font-size: 1.5em
 	.header-wrapper--small .logo-text
 		width: auto
 		margin-right: 0.75em
@@ -60,13 +67,12 @@
 	.header__menu
 		display: flex
 		justify-content: space-between
+		height: 50px
 		.logo
 			display: flex
 	.logo
 		display: none
-	.header__menu-left
-		span
-			display: none
+
 	.footer iframe
 		width: 100vw
 		margin-left: calc((100vw - 100%) / -2)
@@ -122,6 +128,12 @@
 		flex: 1 1 40%
 	.about-us .nav-container
 		left: calc(50% + 2.5rem)
+
+	#hamb
+		padding: 0 1.5625rem
+
+	.header-wrapper--small .header__nav-list
+		display: none
 // ≥576px
 +media-breakpoint-down(xs)
 	.about-us__text
@@ -165,8 +177,7 @@
 	.header__menu-right-item 
 		padding: 0 0.5em
 	.header__cart
-		margin-right: 1.5em
-		padding: 0
+		padding: 0 1.5em
 	.catalog__name 
     padding: .5625em .8125em
 	.footer iframe
@@ -234,6 +245,13 @@
 		padding: 0
 		&:before
 			display: none
+	.header__menu-right-item:before
+		display: none
+	.header .search-label
+		display: none
+	.header__menu .logo
+		padding: 0
+		flex: 0 0 8em
 /*==========  Mobile First  ==========*/
 
 // ≤576px

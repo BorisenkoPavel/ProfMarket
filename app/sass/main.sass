@@ -11,6 +11,8 @@
 
 
 html
+body.active
+	overflow: hidden
 body
 	font-size: 1rem
 	min-width: 320px
@@ -26,9 +28,13 @@ body
 		&:required:valid
 			border-color: green
 
+body.active
+	.body-container
+		margin-left: -17px
 .body-container.active
 	overflow: hidden
 	height: 100vh
+	margin-left: -17px
 .body-container
 	overflow-x: hidden
 	position: relative
@@ -128,7 +134,7 @@ h1,.h1,h2,.h2,h5,.h5
 .social
 	width: 36px
 	height: 36px
-	background-color: $w-grey
+	background-color: #cccccc
 	border-radius: 50%
 	line-height: 36px
 	text-align: center
@@ -250,11 +256,23 @@ h1,.h1,h2,.h2,h5,.h5
 		color: #fff
 		i 
 			font-size: 2.5em
+			transition: .3s
+
 		&:hover
 			i 
 				color: $text
+
+	.prev
+		&:hover
+			i
+				animation-duration: .5s
+				animation-name: slideleft
 	.next
 		margin-left: 40px
+		&:hover
+			i
+				animation-duration: .5s
+				animation-name: slideright
 		&:before
 			content: ''
 			height: 2.5em
@@ -266,6 +284,27 @@ h1,.h1,h2,.h2,h5,.h5
 			position: absolute
 			background-color: #fff
 			pointer-events: none
+
+@keyframes slideleft
+	from
+		transform: translatex(0)
+
+	to
+		transform: translatex(0)
+
+	50%
+		transform: translatex(-5px)	
+
+@keyframes slideright
+	from
+		transform: translatex(0)
+
+	to
+		transform: translatex(0)
+
+	50%
+		transform: translatex(5px)
+
 
 .slick-dots
 	display: flex
@@ -320,33 +359,65 @@ h1,.h1,h2,.h2,h5,.h5
 	align-items: flex-start
 	justify-content: space-between
 
+.header-small
+	height: 50px
+	flex-wrap: nowrap
+	position: relative
+body.active
+	.header-wrapper--small
+		.header
+			padding-right: 17px
+.header-wrapper--small.header-small--visible
+	transform: translate(0)
 .header-wrapper
 	background-color: #fff
 	position: relative
-	// &--small
-	// 	box-shadow: 0 0 7px rgba(0, 0, 0, 0.3)
-	// 	.header__nav
-	// 		font-size: 0
-	// 		padding: 0
-	// 	.header__left-block
-	// 		flex: 0 0 4%
-	// 		max-width: 4%
-	// 	.header__right-block
-	// 		flex: 1 1 96%
-	// 		max-width: 96%
-	// 	.header__menu-left
-	// 		padding: 0.75em 1.5625em
-	// 	.logo
-	// 		display: flex
-	// 		&-icon
-	// 			img 
-	// 				max-height: 2.5em
-	// 				width: 100%
-	// 				object-fit: contain
-	// 		&-text
-	// 			width: 0
-	// 			margin-right: 0
-		
+	&--small
+		box-shadow: 0 0 7px rgba(0, 0, 0, 0.3)
+		position: fixed
+		background-color: #fff
+		z-index: 6000
+		top: 0
+		left: 0
+		right: 0
+		transform: translatey(-300%)
+		transition: .4s
+		.header__menu
+			flex: 1 1 auto
+			&-left
+				flex: 0 0 auto
+		.header__nav.hidden
+			display: none
+		.header__nav-list
+			align-items: center
+		.header__nav:before
+			display: none
+		.header__login:before
+			left: auto
+			background: none
+		.hamb
+			padding-top: 0
+			padding-bottom: 0
+			height: 100%
+		.logo
+			display: flex
+			flex: 0 0 auto
+			&-icon
+				img 
+					max-height: 2.5em
+					width: 100%
+					object-fit: contain
+			&-text
+				width: 0
+				margin-right: 0
+#header__menu-list-small.active
+	transform: translateY(0)
+
+#header__menu-list-small
+	transition: .4s ease
+	transform: translateY(-105%)
+	overflow: auto
+	z-index: -1
 .header
 	position: relative
 	font-family: $a-font
@@ -384,9 +455,12 @@ h1,.h1,h2,.h2,h5,.h5
 		a 
 			text-decoration: none
 			position: relative
+			transition: .3s
+			white-space: nowrap
 			&:hover
+				color: $accent
 				&:before
-					width: 100%
+					// width: 100%
 			&:before
 				content: ''
 				transition: .3s
@@ -453,12 +527,15 @@ h1,.h1,h2,.h2,h5,.h5
 					text-decoration: none
 			&:last-of-type
 				border-bottom: none
-	
+	.search-label
+		input::placeholder
+			color: rgba(255,255,255,.5)	
 	.search-label.active
 		transform: translate(0)
+		width: 100%
 	.search-label
 		flex: 1 1
-		width: 100%
+		width: 0
 		display: flex
 		position: relative
 		margin-left: 1.25rem
@@ -501,7 +578,7 @@ h1,.h1,h2,.h2,h5,.h5
 		font-size: 1.125em
 		animation-timing-function: cubic-bezier(.175,.885,.32,1)
 		max-height: 90vh
-		overflow-y: auto
+		overflow: auto
 		a 
 			padding: .8em 0
 			padding-left: 1.25em
@@ -580,8 +657,11 @@ h1,.h1,h2,.h2,h5,.h5
 		top: 0.375rem
 		text-align: center
 		line-height: 1.375rem
+		pointer-events: none
 	&__rating
 		position: relative
+	&__cart.active
+		background-color: $w-grey
 	&__cart
 		font-size: 0.875em
 		font-weight: 700
@@ -596,24 +676,12 @@ h1,.h1,h2,.h2,h5,.h5
 		color: #fff
 		font-weight: bold
 		background-color: $accent
-		padding: 1.3125em 1.5625em
 		cursor: pointer
 		display: flex
 		align-items: center
 		transition: .3s ease
 		position: relative
-		&:before
-			content: '\f0c9'
-			font-family: 'font awesome 5 pro'
-			font-weight: 300
-			font-size: 1.125em
-			padding-right: 0.625em
-			width: 25px
-			text-align: center
-	&__menu-left.active
-		background-color: $grey
-		&:before
-			content: '\f00d'
+		
 
 .banner
 	padding-top: 0
@@ -1017,6 +1085,16 @@ main
 	display: none
 	flex-direction: column
 	justify-content: space-between
+	.form-close
+		position: absolute
+		right: 2rem
+		top: 3rem
+		font-size: 25px
+		padding: 0.625rem
+		cursor: pointer
+
+		
+
 	.form-button
 		background-color: $accent
 		flex: 0 0 auto
@@ -1083,10 +1161,44 @@ main
 	align-content: center
 
 
+.footer-angle--top.nsk
+	height: 63%
+.footer-angle--bottom.nsk
+		height: 30%
+.footer-angle--top, .footer-angle--bottom
+	position: absolute
+	right: -29px
+	width: 30px
+	background-color: #e6e6e6
+	transition: .4s ease
+	z-index: 500
+	&:before
+		content: ''
+		position: absolute
+		width: 30px
+		height: 30px
+		border: 15px solid transparent
+		border-left: 15px solid #e6e6e6
+.footer-angle--bottom
+	height: 63%
+	bottom: 0
+	&:before
+		top: -30px
+		border-bottom: 15px solid #e6e6e6
+
+.footer-angle--top
+	height: 30%
+	top: 0px
+	&:before
+		bottom: -30px
+		border-top: 15px solid #e6e6e6
+
 .footer
-	
+	background-color: #e6e6e6
 	&-left
 		padding-top: 3.75em
+		margin-left: -30px
+		position: relative
 	&-logo.logo
 		height: auto
 		margin-bottom: 2.5em
@@ -1109,6 +1221,7 @@ main
 			color: $accent
 			line-height: 2
 			position: relative
+			white-space: nowrap
 			&:before
 				content: ''
 				transition: .3s
@@ -1155,7 +1268,7 @@ main
 			content: ''
 			position: absolute
 			top: 0
-			width: 50vw
+			width: calc(50vw + 30px)
 			mix-blend-mode: multiply
 			bottom: 0
 			background: $d-grey
@@ -1212,7 +1325,7 @@ main
 	padding: 14px 0
 	font-size: 0.75em
 	font-family: $a-font
-	background: linear-gradient(to right, $w-grey 50%, $d-grey 50%)
+	background: linear-gradient(to right, #cccccc 50%, $d-grey 50%)
 	position: relative
 	z-index: 50
 .e1media
@@ -1224,10 +1337,9 @@ main
 	bottom: 0
 	right: 0
 	left: 0
-	background-color: grey
+	background-color: rgba(0,0,0, .7)
 	z-index: 1000
 	display: none
-	mix-blend-mode: multiply
 .bg-dark.active
 	display: block
 
@@ -1269,5 +1381,182 @@ main
 .tooltip.bs-tooltip-top .inner:before 
 	border-right-color: $w-grey !important
 
+.cart-list.active, .cart-list.hover
+	opacity: 1
+	pointer-events: all
+.cart-list
+	position: absolute
+	right: 0
+	top: 100%
+	max-width: 330px
+	z-index: 500
+	background-color: #fff
+	box-shadow: -3px 2px 7px rgba(0, 0, 0, 0.15)
+	opacity: 0
+	pointer-events: none
+	z-index: 500
+	&:before
+		content: ''
+		width: 20px
+		height: 20px
+		border: 10px solid transparent
+		border-bottom: 10px solid #ffffff
+		top: -20px
+		right: 50px
+		position: absolute
+		pointer-events: none
+.cart-item
+	padding: 1.25rem
+	display: flex
+	align-items: center
+	transition: .3s ease
+	cursor: pointer
+	&:hover
+		background-color: $w-grey
+		.cart-close
+			opacity: 1
+.cart-photo
+	width: 60px
+	height: 60px
+	margin-right: 15px
+	background-color: #fff
+	flex: 0 0 auto
+	.content-box
+		background-repeat: no-repeat
+		background-size: cover
+		background-position: center
+.cart-name
+	font-size: 0.875rem
+	color: $d-grey
+.cart-price
+	font-family: $a-font
+	color: $accent
+	font-size: 1rem
+.cart-close
+	margin-left: 2.75rem
+	align-self: flex-start
+	opacity: 0
+	transition: .3s
+	font-size: 20px
+	font-weight: 800
+.cart-summ
+	font-size: 1.5rem
+	font-family: $a-font
+	padding-left: 20px
+	font-weight: 700
+	height: 5rem
+	display: flex
+	align-items: center
+.cart-btn
+	border-radius: 0
+	margin: 0
+	border: none
+	display: block
+	text-align: center
+	line-height: 3.4375rem
+
+
+.visuallyHidden 
+	position: absolute
+	overflow: hidden
+	clip: rect(0 0 0 0)
+	height: 1px
+	width: 1px
+	margin: -1px
+	padding: 0
+	border: 0
+
+.hamb.active, .hamb:hover
+	background-color: $grey
+	transition: .4s ease
+
+.hamb
+	display: flex
+	align-items: center
+	margin: 0
+	padding: 1.3125rem 1.5625rem
+	background-color: $accent
+	cursor: pointer
+
+.hamburger 
+	margin: 0 auto
+	width: 23px
+	height: 16px
+	position: relative
+	margin-right: 0.9375rem
+
+
+.hamburger .bar 
+	padding: 0
+	width: 23px
+	height: 2px
+	background-color: #fff
+	display: block
+	border-radius: 4px
+	transition: all 0.4s ease-in-out
+	position: absolute 
+
+#map
+	width: 50vw
+	height: 100%
+
+.bar1 
+	top: 0
+
+
+.bar2,
+.bar3 
+	top: 7px
+
+
+.bar3 
+	right: 0
+
+
+.bar4 
+	bottom: 0
+
+
+/* HAMBURGER 1 */
+.checkbox1:checked + label > .hamburger1 > .bar1
+	transform: rotate(45deg)
+	transform-origin: 5%
+	width: 23px
+
+
+.checkbox1:checked + label > .hamburger1 > .bar2 
+	transform: translateX(-40px)
+	background-color: transparent
+
+
+.checkbox1:checked + label > .hamburger1 > .bar3 
+	transform: translateX(40px)
+	background-color: transparent
+
+
+.checkbox1:checked + label > .hamburger1 > .bar4 
+	transform-origin: 5%
+	transform: rotate(-45deg)
+	width: 23px
+
+.bs-tooltip-top .arrow::before, .bs-tooltip-auto[x-placement^="top"] .arrow::before 
+	border-top-color: #fff  /* цвет стрелочки (по умолчанию #000)*/
+
+.bs-tooltip-right .arrow::before, .bs-tooltip-auto[x-placement^="right"] .arrow::before 
+	border-right-color: #fff /* цвет стрелочки (по умолчанию #000)*/
+
+.bs-tooltip-bottom .arrow::before, .bs-tooltip-auto[x-placement^="bottom"] .arrow::before 
+	border-bottom-color: #fff /* цвет стрелочки (по умолчанию #000) */
+
+.bs-tooltip-left .arrow::before, .bs-tooltip-auto[x-placement^="left"] .arrow::before 
+	border-left-color: #fff /* цвет стрелочки (по умолчанию #000) */
+
+.tooltip-inner 
+	max-width: 250px /* максимальная ширина подсказки (по умолчанию 200px) */
+	color: grey /* цвет шрифта */
+	background-color: #fff /* цвет фона (по умолчанию #000) */
+	border-radius: 0 /* радиус скругдения углов */
+	padding: 0.5rem 1rem
+	box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.25)
 
 @import "media" // Always at the end

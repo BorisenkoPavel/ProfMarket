@@ -37,7 +37,7 @@ $(function () {
 		$(bannerContentSlider).slick('slickNext');
 
 	});
-	
+
 
 	$('.banner__content-slider .banner__title').removeClass("animated faster fadeInRight");
 	$('.banner__content-slider .slick-current .banner__title').addClass("animated faster fadeInRight");
@@ -47,14 +47,14 @@ $(function () {
 	$('.banner__content-slider .slick-current .btn').addClass("animated faster fadeInRight");
 
 
-		bannerContentSlider.on('afterChange', function(event, slick, currentSlide, nextSlide){
-			$('.banner__content-slider .banner__title').removeClass("animated faster fadeInRight");
-			$('.banner__content-slider .slick-current .banner__title').addClass("animated faster fadeInRight");
-			$('.banner__content-slider .banner__text').removeClass("animated faster fadeInRight");
-			$('.banner__content-slider .slick-current .banner__text').addClass("animated faster fadeInRight");
-			$('.banner__content-slider .btn').removeClass("animated faster fadeInRight");
-			$('.banner__content-slider .slick-current .btn').addClass("animated faster fadeInRight");
-		});
+	bannerContentSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
+		$('.banner__content-slider .banner__title').removeClass("animated faster fadeInRight");
+		$('.banner__content-slider .slick-current .banner__title').addClass("animated faster fadeInRight");
+		$('.banner__content-slider .banner__text').removeClass("animated faster fadeInRight");
+		$('.banner__content-slider .slick-current .banner__text').addClass("animated faster fadeInRight");
+		$('.banner__content-slider .btn').removeClass("animated faster fadeInRight");
+		$('.banner__content-slider .slick-current .btn').addClass("animated faster fadeInRight");
+	});
 
 	var aboutContentSlider = $('.about-us__content-slider').slick({
 		slidesToShow: 1,
@@ -87,12 +87,12 @@ $(function () {
 
 	});
 
- $('.about-us__content-slider .about-us__title').removeClass("animated faster fadeInRight");
-$('.about-us__content-slider .about-us__text').removeClass("animated faster fadeInRight");
-$('.about-us__content-slider .slick-current .about-us__title').addClass("animated faster fadeInRight");
-$('.about-us__content-slider .slick-current .about-us__text').addClass("animated faster fadeInRight"); 
+	$('.about-us__content-slider .about-us__title').removeClass("animated faster fadeInRight");
+	$('.about-us__content-slider .about-us__text').removeClass("animated faster fadeInRight");
+	$('.about-us__content-slider .slick-current .about-us__title').addClass("animated faster fadeInRight");
+	$('.about-us__content-slider .slick-current .about-us__text').addClass("animated faster fadeInRight");
 
-	aboutContentSlider.on('afterChange', function(event, slick, currentSlide, nextSlide){
+	aboutContentSlider.on('afterChange', function (event, slick, currentSlide, nextSlide) {
 		$('.about-us__content-slider .about-us__title').removeClass("animated faster fadeInRight");
 		$('.about-us__content-slider .about-us__text').removeClass("animated faster fadeInRight");
 		$('.about-us__content-slider .slick-current .about-us__title').addClass("animated faster fadeInRight");
@@ -106,8 +106,7 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 		swipeToSlide: true,
 		arrows: false,
 		infinite: true,
-		responsive: [
-			{
+		responsive: [{
 				breakpoint: 768,
 				settings: {
 					slidesToShow: 4,
@@ -120,7 +119,7 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 				}
 			},
 		]
-	}); 
+	});
 
 	$('#prev2').on('click', function () {
 		$(catalogSlider).slick('slickPrev');
@@ -135,8 +134,8 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 	// 	if ((currentSlide-nextSlide) < 0) {
 	// 	} else {
 	// 	}
-	
-	
+
+
 	// });
 
 
@@ -147,22 +146,30 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 	})
 
 
-	$('.header__menu-left').on('click', function () {
+	$('#hamb').on('click', function () {
 		$('.body-container').toggleClass('active')
 		$(this).toggleClass('active');
 		// $('.header-wrapper').toggleClass('active');
 		$('.bg-dark').toggleClass('active');
-		$('.header__menu-list').toggleClass('fadeInDown')
-		$('.header__menu-list').toggleClass('fadeOutUp')
+		$('#header__menu-list').toggleClass('fadeInDown')
+		$('#header__menu-list').toggleClass('fadeOutUp')
+	});
+
+	$('#hamb-small').on('click', function () {
+		$('body').toggleClass('active')
+		$(this).toggleClass('active');
+		// $('.header-wrapper').toggleClass('active');
+		$('.bg-dark').toggleClass('active');
+		$('#header__menu-list-small').toggleClass('active')
 	});
 
 
 	var cbpAnimatedHeader = (function () {
 
 		var docElem = document.documentElement,
-			header = document.querySelector('.header-fixed'),
+			header = document.querySelector('.header-wrapper--small'),
 			didScroll = false,
-			changeHeaderOn = 530;
+			changeHeaderOn = 200;
 
 		function init() {
 			window.addEventListener('scroll', function (event) {
@@ -176,9 +183,9 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 		function scrollPage() {
 			var sy = scrollY();
 			if (sy >= changeHeaderOn) {
-				header.classList.add('header-fixed--active');
+				header.classList.add('header-small--visible');
 			} else {
-				header.classList.remove('header-fixed--active');
+				header.classList.remove('header-small--visible');
 			}
 			didScroll = false;
 		}
@@ -271,7 +278,7 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 
 
 	// setTimeout( function() {
-		
+
 	// 	$(".body-container").css('padding-top', $('.header-wrapper').height());
 	// 	// $(".header__menu-list").css('top', $('.header-wrapper').height());
 
@@ -284,10 +291,10 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 	// 	}, 1000)
 	// });
 
-	$(function() {
-		$('.parent').click(function() {
-				$(this).nextUntil('.parent', 'tr.child').slideToggle();
-				$(this).toggleClass('open');
+	$(function () {
+		$('.parent').click(function () {
+			$(this).nextUntil('.parent', 'tr.child').slideToggle();
+			$(this).toggleClass('open');
 		});
 	});
 
@@ -300,11 +307,11 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 	// 	}
 	// })
 
-	$('.filter__item').on('click', function(){
+	$('.filter__item').on('click', function () {
 		$(this).toggleClass('active')
 	})
 
-	$('.your-orders__item').on('click', function(){
+	$('.your-orders__item').on('click', function () {
 		$(this).toggleClass('active')
 	})
 
@@ -330,49 +337,56 @@ $('.about-us__content-slider .slick-current .about-us__text').addClass("animated
 	// });
 
 
-$(document).mouseup(function (e){ 
-	if ( $('.director-content--wrapper').hasClass('active') ){
-		var div = $(".form-main"); // тут указываем ID элемента
-		if (!div.is(e.target) // если клик был не по нашему блоку
-				&& div.has(e.target).length === 0) { // и не по его дочерним элементам
-					$('.director-content--wrapper').removeClass('active'); // скрываем его
+	$(document).mouseup(function (e) {
+		if ($('.director-content--wrapper').hasClass('active')) {
+			var div = $(".form-main"); // тут указываем ID элемента
+			if (!div.is(e.target) // если клик был не по нашему блоку
+				&&
+				div.has(e.target).length === 0) { // и не по его дочерним элементам
+				$('.director-content--wrapper').removeClass('active'); // скрываем его
+			}
 		}
-	}
 
-});
+	});
 
-$('.director-btn').on('click', function () {
-	$('.director-content--wrapper').toggleClass('active')
-})
+	$('.form-close').on('click', function () {
+		$('.director-content--wrapper').removeClass('active')
+	})
 
-$(".go-top").on("click", function (event) {
-	event.preventDefault();
-	var id = $(this).attr('href'),
-		top = $(id).offset().top;
-	$('body, html').animate({
-		scrollTop: top
-	}, 350);
-});
+	$('.director-btn').on('click', function () {
+		$('.director-content--wrapper').toggleClass('active')
+	})
 
-$(window).scroll(function () {
-	var offset = $('#main').offset();
-	if ($(this).scrollTop() > offset.top) {
-		$('.go-top').css('display', 'block');
-	} else {
-		$('.go-top').css('display', 'none');
-	}
-});
+	$(".go-top").on("click", function (event) {
+		event.preventDefault();
+		var id = $(this).attr('href'),
+			top = $(id).offset().top;
+		$('body, html').animate({
+			scrollTop: top
+		}, 350);
+	});
+
+	$(window).scroll(function () {
+		var offset = $('#main').offset();
+		if ($(this).scrollTop() > offset.top) {
+			$('.go-top').css('display', 'block');
+		} else {
+			$('.go-top').css('display', 'none');
+		}
+	});
 
 
-$('.header__search').on('click', function(){
-	$(this).toggleClass('active');
-	$('.search-label').toggleClass('active');
-})
+	$('.header__search').on('click', function () {
+		$(this).toggleClass('active');
+		$('.header__nav').toggleClass('hidden')
+		$('.search-label').toggleClass('active');
+	})
 
-$('.search-label__close').on('click', function(){
-	$('.search-label').removeClass('active');
-	$('.header__search').removeClass('active');
-});
+	$('.search-label__close').on('click', function () {
+		$('.search-label').removeClass('active');
+		$('.header__search').removeClass('active');
+		$('.header__nav').removeClass('hidden');
+	});
 
 
 	// $('.search-label').on('transitionend webkitTransitionEnd oTransitionEnd', function () {
@@ -384,27 +398,231 @@ $('.search-label__close').on('click', function(){
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
 	})
-	
+
+	$('.addres-city').on('click', function () {
+		$('.addres-city').removeClass('active')
+		$(this).addClass('active')
+		if ($('.addres-city.nsk').hasClass('active')) {
+			$('.footer-angle--top').addClass('nsk')
+			$('.footer-angle--bottom').addClass('nsk')
+		} else {
+			$('.footer-angle--top').removeClass('nsk')
+			$('.footer-angle--bottom').removeClass('nsk')
+		}
+	});
+
+	$('#header__cart').on('click', function () {
+		$(this).toggleClass('active')
+		$('#cart-list').toggleClass('active');
+	});
+
+	$("#header__cart").mouseover(function () {
+		$("#cart-list").addClass('hover');
+	});
+	$("#header__cart").mouseout(function () {
+		$("#cart-list").removeClass('hover');
+	});
+
+	$('#header__cart-small').on('click', function () {
+		$(this).toggleClass('active')
+		$('#cart-list-small').toggleClass('active');
+	});
+
+	$("#header__cart-small").mouseover(function () {
+		$("#cart-list-small").addClass('hover');
+	});
+	$("#header__cart-small").mouseout(function () {
+		$("#cart-list-small").removeClass('hover');
+	});
+
+
+
 });
 
+var barnaul = [53.344371, 83.720846]
+		nsk = [55.084132, 82.977778]
 
+$('.addres-city').on('click', function () {
+	myMap.destroy();
+	if ($(this).hasClass('nsk')) {
+		ymaps.ready(function () {
+			var myMap = new ymaps.Map('map', {
+					center: nsk,
+					zoom: 18,
+					controls: []
+				}),
+				// Создаём макет содержимого.
+				MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+					'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+				),
+
+				myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+					hintContent: 'Собственный значок метки',
+					balloonContent: 'Это красивая метка'
+				}, {
+					// Опции.
+					// Необходимо указать данный тип макета.
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: 'img/maps.png',
+					// Размеры метки.
+					iconImageSize: [64, 64],
+					// Смещение левого верхнего угла иконки относительно
+					// её "ножки" (точки привязки).
+					iconImageOffset: [-25, -58]
+				}),
+
+				myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
+					hintContent: 'Собственный значок метки с контентом',
+					balloonContent: 'А эта — новогодняя',
+					iconContent: ''
+				}, {
+					// Опции.
+					// Необходимо указать данный тип макета.
+					iconLayout: 'default#imageWithContent',
+					// Своё изображение иконки метки.
+					iconImageHref: 'img/maыps.png',
+					// Размеры метки.
+					iconImageSize: [64, 64],
+					// Смещение левого верхнего угла иконки относительно
+					// её "ножки" (точки привязки).
+					iconImageOffset: [-32, -32],
+					// Смещение слоя с содержимым относительно слоя с картинкой.
+					iconContentOffset: [15, 15],
+					// Макет содержимого.
+					iconContentLayout: MyIconContentLayout
+				});
+
+			myMap.geoObjects
+				.add(myPlacemark)
+				.add(myPlacemarkWithContent);
+		});
+	} else {
+		ymaps.ready(function () {
+			var myMap = new ymaps.Map('map', {
+					center: barnaul,
+					zoom: 18,
+					controls: []
+				}),
+				// Создаём макет содержимого.
+				MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+					'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+				),
+
+				myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+					hintContent: 'Собственный значок метки',
+					balloonContent: 'Это красивая метка'
+				}, {
+					// Опции.
+					// Необходимо указать данный тип макета.
+					iconLayout: 'default#image',
+					// Своё изображение иконки метки.
+					iconImageHref: 'img/maps.png',
+					// Размеры метки.
+					iconImageSize: [64, 64],
+					// Смещение левого верхнего угла иконки относительно
+					// её "ножки" (точки привязки).
+					iconImageOffset: [-25, -58]
+				}),
+
+				myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
+					hintContent: 'Собственный значок метки с контентом',
+					balloonContent: 'А эта — новогодняя',
+					iconContent: ''
+				}, {
+					// Опции.
+					// Необходимо указать данный тип макета.
+					iconLayout: 'default#imageWithContent',
+					// Своё изображение иконки метки.
+					iconImageHref: 'img/maыps.png',
+					// Размеры метки.
+					iconImageSize: [64, 64],
+					// Смещение левого верхнего угла иконки относительно
+					// её "ножки" (точки привязки).
+					iconImageOffset: [-32, -32],
+					// Смещение слоя с содержимым относительно слоя с картинкой.
+					iconContentOffset: [15, 15],
+					// Макет содержимого.
+					iconContentLayout: MyIconContentLayout
+				});
+
+			myMap.geoObjects
+				.add(myPlacemark)
+				.add(myPlacemarkWithContent);
+		});
+	}
+})
+
+
+ymaps.ready(function () {
+	var myMap = new ymaps.Map('map', {
+			center: nsk,
+			zoom: 18,
+			controls: []
+		}),
+		// Создаём макет содержимого.
+		MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
+			'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
+		),
+
+		myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
+			hintContent: 'Собственный значок метки',
+			balloonContent: 'Это красивая метка'
+		}, {
+			// Опции.
+			// Необходимо указать данный тип макета.
+			iconLayout: 'default#image',
+			// Своё изображение иконки метки.
+			iconImageHref: 'img/maps.png',
+			// Размеры метки.
+			iconImageSize: [64, 64],
+			// Смещение левого верхнего угла иконки относительно
+			// её "ножки" (точки привязки).
+			iconImageOffset: [-25, -58]
+		}),
+
+		myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
+			hintContent: 'Собственный значок метки с контентом',
+			balloonContent: 'А эта — новогодняя',
+			iconContent: ''
+		}, {
+			// Опции.
+			// Необходимо указать данный тип макета.
+			iconLayout: 'default#imageWithContent',
+			// Своё изображение иконки метки.
+			iconImageHref: 'img/maыps.png',
+			// Размеры метки.
+			iconImageSize: [64, 64],
+			// Смещение левого верхнего угла иконки относительно
+			// её "ножки" (точки привязки).
+			iconImageOffset: [-32, -32],
+			// Смещение слоя с содержимым относительно слоя с картинкой.
+			iconContentOffset: [15, 15],
+			// Макет содержимого.
+			iconContentLayout: MyIconContentLayout
+		});
+
+	myMap.geoObjects
+		.add(myPlacemark)
+		.add(myPlacemarkWithContent);
+});
 
 const tabLinks = document.querySelectorAll(".nav-buttons__item");
 const tabPanels = document.querySelectorAll(".lk-tab");
- 
-for(let el of tabLinks) {
-  el.addEventListener("click", e => {
-    e.preventDefault();
-     
-    document.querySelector('.nav-buttons__item.active').classList.remove("active");
-    document.querySelector('.lk-tab.active').classList.remove("active");
- 
-    const parentListItem = el.parentElement;
-    parentList.classList.add("active");
-    const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
-     
-    const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
+
+for (let el of tabLinks) {
+	el.addEventListener("click", e => {
+		e.preventDefault();
+
+		document.querySelector('.nav-buttons__item.active').classList.remove("active");
+		document.querySelector('.lk-tab.active').classList.remove("active");
+
+		const parentListItem = el.parentElement;
+		parentList.classList.add("active");
+		const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
+
+		const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
 		panel[0].classList.add("active");
-		
-  });
+
+	});
 }
