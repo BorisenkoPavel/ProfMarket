@@ -151,8 +151,7 @@ $(function () {
 		$(this).toggleClass('active');
 		// $('.header-wrapper').toggleClass('active');
 		$('.bg-dark').toggleClass('active');
-		$('#header__menu-list').toggleClass('fadeInDown')
-		$('#header__menu-list').toggleClass('fadeOutUp')
+		$('#header__menu-list').toggleClass('active')
 	});
 
 	$('#hamb-small').on('click', function () {
@@ -377,7 +376,7 @@ $(function () {
 
 
 	$('.header__search').on('click', function () {
-		$(this).toggleClass('active');
+		$('.header__search').toggleClass('active');
 		$('.header__nav').toggleClass('hidden')
 		$('.search-label').toggleClass('active');
 	})
@@ -388,12 +387,32 @@ $(function () {
 		$('.header__nav').removeClass('hidden');
 	});
 
+	$(".header__menu").mouseleave(function () {
+		$('.search-label').removeClass('active');
+		$('.header__search').removeClass('active');
+		$('.header__nav').removeClass('hidden');
+	});
 
-	// $('.search-label').on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+
+	// $('.header__search').on('click', function () {
 	// 	if ( $('.header__search').hasClass('active') ) {
-	// 	$('.header__search').removeClass('active'); 
+	// 		$('.search-label').removeClass('active')
+	// 		$('.header__search').removeClass('active')
+	// 		$('.search-label').on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+	// 			$('.header__nav').removeClass('hidden')
+	// 		})
+	// 	} else {
+
+	// 		$('.search-label').addClass('active')
+	// 		$('.header__nav').addClass('hidden')
+	// 		setTimeout()
+	// 		$('.search-label').on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+	// 			$('.header__search').addClass('active');
+	// 		})
+
 	// 	}
 	// })
+
 
 	$(function () {
 		$('[data-toggle="tooltip"]').tooltip()
@@ -435,129 +454,155 @@ $(function () {
 		$("#cart-list-small").removeClass('hover');
 	});
 
+	$('.catalog-filter__toogle-btn').on('click', function () {
+		$('.body-container').toggleClass('active')
+		$(this).toggleClass('active');
+		$('.bg-dark').toggleClass('active');
+		$('aside').toggleClass('active')
+	})
+
+	$(document).mouseup(function (e) {
+		if ($('aside').hasClass('active')) {
+			var div = $("aside"); // тут указываем ID элемента
+			if (!div.is(e.target) // если клик был не по нашему блоку
+				&&
+				div.has(e.target).length === 0) { // и не по его дочерним элементам
+				$('.body-container').removeClass('active')
+				$('.catalog-filter__toogle-btn').removeClass('active');
+				$('.bg-dark').removeClass('active');
+				$('aside').removeClass('active') // скрываем его
+			}
+		}
+	});
+
+	$('.sorting__icon--1').on('click', function () {
+		$(this).addClass('active')
+		$('.sorting__icon--2').removeClass('active')
+		$('.catalog-list').removeClass('catalog-list--list')
+	})
+
+	$('.sorting__icon--2').on('click', function () {
+		$(this).addClass('active')
+		$('.sorting__icon--1').removeClass('active')
+		$('.catalog-list').addClass('catalog-list--list')
+	})
+
+	$('.link-seo').on('click', function () {
+		event.preventDefault();
+		$(this).toggleClass('active');
+		$('.exa').slideToggle();
+		if ($(this).hasClass('active')) {
+			$(this).html('Скрыть')
+		} else {
+			$(this).html('Показать еще')
+		}
+	})
+
+
+	$('.catalog-filter__input--checked').on('input', function (e) {
+		if (e.target.value !== '') {
+			var posTop = $(this).offset().top
+			posLeft = $('.catalog-filter__show-btn').offset().left
+			$('.catalog-filter__show-btn').addClass('active')
+			$('.catalog-filter__show-btn').offset({
+				top: posTop,
+				left: posLeft
+			})
+		}
+		setTimeout(function () {
+			$('.catalog-filter__show-btn').removeClass('active')
+		}, 2000);
+
+	});
+
+
+	$(window).resize(function () {
+		if ($(window).width() < 576) {
+			$('.catalog-list').removeClass('catalog-list--list')
+		}
+	});
+
+
+	$('.card-item__photo').slick({
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		arrows: false,
+		fade: true,
+		asNavFor: '.card-item__thumbs'
+		
+	})
+
+	$('.card-item__thumbs').slick({
+		slidesToShow: 4,
+		slidesToScroll: 1,
+		asNavFor: '.card-item__photo',
+		focusOnSelect: true,
+		arrows: false,
+	})
+
+  $('.catalog-card__minus').click(function () {
+		var $input = $(this).parent().find('input');
+		var count = parseInt($input.val()) - 1;
+		count = count < 1 ? 1 : count;
+		$input.val(count);
+		$input.change();
+		return false;
+});
+$('.catalog-card__plus').click(function () {
+		var $input = $(this).parent().find('input');
+		$input.val(parseInt($input.val()) + 1);
+		$input.change();
+		return false;
+});
+
+// $('.card-item__block--toggle').on('click', function(){
+// 	$(this).toggleClass('active')
+// 	if ( $(this).hasClass('active') ) {
+// 		$(this).siblings('.toggle-content--wrapper').slideToggle()
+// 	}
+// 	// $('.toggle-content--wrapper').slideUp()
+	
+// 	// $(this).siblings('.toggle-content--wrapper').slideDown()
+// })
+
+
+$('.card-item__property').accordion()
+
+
+
+
 
 
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var barnaul = [53.344371, 83.720846]
-		nsk = [55.084132, 82.977778]
-
-$('.addres-city').on('click', function () {
-	myMap.destroy();
-	if ($(this).hasClass('nsk')) {
-		ymaps.ready(function () {
-			var myMap = new ymaps.Map('map', {
-					center: nsk,
-					zoom: 18,
-					controls: []
-				}),
-				// Создаём макет содержимого.
-				MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-					'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-				),
-
-				myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-					hintContent: 'Собственный значок метки',
-					balloonContent: 'Это красивая метка'
-				}, {
-					// Опции.
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#image',
-					// Своё изображение иконки метки.
-					iconImageHref: 'img/maps.png',
-					// Размеры метки.
-					iconImageSize: [64, 64],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-25, -58]
-				}),
-
-				myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
-					hintContent: 'Собственный значок метки с контентом',
-					balloonContent: 'А эта — новогодняя',
-					iconContent: ''
-				}, {
-					// Опции.
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#imageWithContent',
-					// Своё изображение иконки метки.
-					iconImageHref: 'img/maыps.png',
-					// Размеры метки.
-					iconImageSize: [64, 64],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-32, -32],
-					// Смещение слоя с содержимым относительно слоя с картинкой.
-					iconContentOffset: [15, 15],
-					// Макет содержимого.
-					iconContentLayout: MyIconContentLayout
-				});
-
-			myMap.geoObjects
-				.add(myPlacemark)
-				.add(myPlacemarkWithContent);
-		});
-	} else {
-		ymaps.ready(function () {
-			var myMap = new ymaps.Map('map', {
-					center: barnaul,
-					zoom: 18,
-					controls: []
-				}),
-				// Создаём макет содержимого.
-				MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-					'<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-				),
-
-				myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-					hintContent: 'Собственный значок метки',
-					balloonContent: 'Это красивая метка'
-				}, {
-					// Опции.
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#image',
-					// Своё изображение иконки метки.
-					iconImageHref: 'img/maps.png',
-					// Размеры метки.
-					iconImageSize: [64, 64],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-25, -58]
-				}),
-
-				myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
-					hintContent: 'Собственный значок метки с контентом',
-					balloonContent: 'А эта — новогодняя',
-					iconContent: ''
-				}, {
-					// Опции.
-					// Необходимо указать данный тип макета.
-					iconLayout: 'default#imageWithContent',
-					// Своё изображение иконки метки.
-					iconImageHref: 'img/maыps.png',
-					// Размеры метки.
-					iconImageSize: [64, 64],
-					// Смещение левого верхнего угла иконки относительно
-					// её "ножки" (точки привязки).
-					iconImageOffset: [-32, -32],
-					// Смещение слоя с содержимым относительно слоя с картинкой.
-					iconContentOffset: [15, 15],
-					// Макет содержимого.
-					iconContentLayout: MyIconContentLayout
-				});
-
-			myMap.geoObjects
-				.add(myPlacemark)
-				.add(myPlacemarkWithContent);
-		});
-	}
-})
-
+nsk = [55.084132, 82.977778]
 
 ymaps.ready(function () {
 	var myMap = new ymaps.Map('map', {
-			center: nsk,
-			zoom: 18,
+			center: barnaul,
+			zoom: 16,
 			controls: []
 		}),
 		// Создаём макет содержимого.
@@ -566,8 +611,8 @@ ymaps.ready(function () {
 		),
 
 		myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-			hintContent: 'Собственный значок метки',
-			balloonContent: 'Это красивая метка'
+			hintContent: 'ОФИС В БАРНАУЛЕ',
+			balloonContent: 'ул. Автотранспортная, 39'
 		}, {
 			// Опции.
 			// Необходимо указать данный тип макета.
@@ -581,16 +626,16 @@ ymaps.ready(function () {
 			iconImageOffset: [-25, -58]
 		}),
 
-		myPlacemarkWithContent = new ymaps.Placemark([53.344471, 83.720946], {
-			hintContent: 'Собственный значок метки с контентом',
-			balloonContent: 'А эта — новогодняя',
+		myPlacemarkWithContent = new ymaps.Placemark(nsk, {
+			hintContent: 'ОФИС В НОВОСИБИРСКЕ',
+			balloonContent: 'Новосибирск, Писемского, 24/2',
 			iconContent: ''
 		}, {
 			// Опции.
 			// Необходимо указать данный тип макета.
 			iconLayout: 'default#imageWithContent',
 			// Своё изображение иконки метки.
-			iconImageHref: 'img/maыps.png',
+			iconImageHref: 'img/maps.png',
 			// Размеры метки.
 			iconImageSize: [64, 64],
 			// Смещение левого верхнего угла иконки относительно
@@ -605,24 +650,42 @@ ymaps.ready(function () {
 	myMap.geoObjects
 		.add(myPlacemark)
 		.add(myPlacemarkWithContent);
+
+	$('.addres-city').on('click', function () {
+		if ($(this).hasClass('nsk')) {
+			myMap.setCenter(nsk);
+		} else {
+			myMap.setCenter(barnaul);
+		}
+	});
+
 });
 
-const tabLinks = document.querySelectorAll(".nav-buttons__item");
-const tabPanels = document.querySelectorAll(".lk-tab");
 
-for (let el of tabLinks) {
-	el.addEventListener("click", e => {
-		e.preventDefault();
 
-		document.querySelector('.nav-buttons__item.active').classList.remove("active");
-		document.querySelector('.lk-tab.active').classList.remove("active");
 
-		const parentListItem = el.parentElement;
-		parentList.classList.add("active");
-		const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
 
-		const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
-		panel[0].classList.add("active");
 
-	});
-}
+
+
+
+
+// const tabLinks = document.querySelectorAll(".nav-buttons__item");
+// const tabPanels = document.querySelectorAll(".lk-tab");
+
+// for (let el of tabLinks) {
+// 	el.addEventListener("click", e => {
+// 		e.preventDefault();
+
+// 		document.querySelector('.nav-buttons__item.active').classList.remove("active");
+// 		document.querySelector('.lk-tab.active').classList.remove("active");
+
+// 		const parentListItem = el.parentElement;
+// 		parentList.classList.add("active");
+// 		const index = [...parentListItem.parentElement.children].indexOf(parentListItem);
+
+// 		const panel = [...tabPanels].filter(el => el.getAttribute("data-index") == index);
+// 		panel[0].classList.add("active");
+
+// 	});
+// }

@@ -1,18 +1,31 @@
 @import "vars"
 
 
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) 
+	.banner__content
+		background-color: rgba(173,	41,	38, .8)
+	.catalog__item:hover::after
+		background-color: rgba(173,	41,	38, .8)
+	.footer .filtr-map::after
+		background-color:	rgba(89, 89, 89, .2)
+	.director-name::before, .director-position::before
+		display: none
+/*----MS Edge Browser CSS Start----*/
+	
+@supports (-ms-ime-align:auto)
+	.banner__content
+		background-color: rgba(173,	41,	38, .8)
+	.catalog__item:hover::after
+		background-color: rgba(173,	41,	38, .8)
+	.footer .filtr-map::after
+		background-color:	rgba(89, 89, 89, .2)
+
+/*----MS Edge Browser CSS End----*/	
+
 /*==========  Desktop First  ==========*/
 
 // ≥1200px
 +media-breakpoint-down(lg)
-	// .banner__slider, .about-us__slider
-	// 	width: calc((100vw - 960px) / 2 + 960px)
-	// .about-us-sliders:before, .banner-sliders:before
-	// 	width: calc((100vw - 960px)/ 2 + (960px / 100 * 33.33333))
-	// .header__nav:before
-	// 	width: calc((100vw - 960px)/ 2)
-	// .catalog-bg:before
-  //   width: calc((100vw - 960px)/ 2 + (960px / 100 * 66.66667))	
 
 
 // ≥992px
@@ -43,6 +56,36 @@
 		font-size: 1.5em
 	.hamburger 
 		margin-right: 0
+	.header-wrapper--small
+		.header__nav
+			display: none
+	.aside-banner
+		display: none
+	.catalog-filter
+		// position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 20%
+		padding-top: 6rem
+	.aside.active
+		transform: translateX(0)
+	.aside
+		padding-right: 0
+		position: fixed
+		top: 0
+		bottom: 0
+		left: 0
+		right: 20%
+		width: 80%
+		max-width: 25rem
+		height: 100vh
+		z-index: 1100
+		overflow: auto
+		transform: translatex(-150%)
+		transition: .4s ease
+	.catalog-filter__toogle-btn
+		display: block
 // ≥768px
 +media-breakpoint-down(sm)
 	.about-us-sliders:before, .banner-sliders:before
@@ -56,12 +99,14 @@
 	
 	.footer-left
 		margin-left: 0
+		padding-left: 0
 	.hamb
 		height: 100%
 
 	.header-wrapper--small .logo-text
 		width: auto
 		margin-right: 0.75em
+
 	.header__left-block
 		display: none
 	.header__menu
@@ -73,7 +118,7 @@
 	.logo
 		display: none
 
-	.footer iframe
+	.footer #map
 		width: 100vw
 		margin-left: calc((100vw - 100%) / -2)
 		height: 300px
@@ -134,11 +179,29 @@
 
 	.header-wrapper--small .header__nav-list
 		display: none
+	.header .search-label
+		display: none
+
+	.sorting__buttons
+		margin-bottom: -10px
+	.sorting__button 
+		margin-bottom: 10px
+
 // ≥576px
 +media-breakpoint-down(xs)
+	.sorting__icons
+		height: 100%
+		flex-direction: column
+		justify-content: space-between
+		margin: -5px 0
+	.sorting__icon
+		border: none
+		margin: 5px 0
+	.sorting__button 
+		padding: 0 10px
 	.about-us__text
 		max-width: 22.0625em
-	.banner__content, .about-us__content, .banner__img ,.about-us__img
+	.banner__content, .about-us__content, .banner__img ,.about-us__img, .banner__content-slider, .banner__slider 
 		height: 470px
 	.about-us__content, .banner__content
 		padding: 5em 1.5em
@@ -252,6 +315,20 @@
 	.header__menu .logo
 		padding: 0
 		flex: 0 0 8em
+	.catalog-page
+		padding: 0 1.5rem
+	.section-seo
+		margin: 0 -1.5rem
+		padding-left:  1.5rem
+		padding-right:  1.5rem
+	.catalog-list
+		margin: 0 -1.5rem
+	.sorting__icons
+		display: none
+	.sorting__buttons
+		margin: 0
+	.crumbs
+		display: none
 /*==========  Mobile First  ==========*/
 
 // ≤576px

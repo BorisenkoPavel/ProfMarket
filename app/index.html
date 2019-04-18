@@ -22,7 +22,6 @@
 	<meta name="theme-color" content="#000">
 	<!-- Custom Browsers Color End -->
 	<script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=fc50ab9a-daf3-4224-a5de-62d12ee583a1" type="text/javascript"></script>
-	<script src="icon_customImage.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/main.min.css">
 
 </head>
@@ -184,11 +183,7 @@
 										</g>
 									</svg>
 									корзина
-								</div>
-							</div>
-						</div>
-
-						<div id="cart-list-small" class="cart-list">
+									<div id="cart-list-small" class="cart-list">
 							<div class="cart-items">
 								<div class="cart-item">
 									<div class="cart-photo">
@@ -235,6 +230,11 @@
 							</div>
 							<div class="btn cart-btn bg-red">Перейти в корзину</div>
 						</div>
+								</div>
+							</div>
+						</div>
+
+						
 					</div>
 				</div>
 			
@@ -327,61 +327,62 @@
 										</g>
 									</svg>
 									корзина
+									<div id="cart-list" class="cart-list">
+											<div class="cart-items">
+												<div class="cart-item">
+													<div class="cart-photo">
+														<div class="box">
+															<div class="content-box" style="background-image: url(img/cart-photo1.png)"></div>
+														</div>
+													</div>
+													<div class="cart-content">
+														<div class="cart-name">Сетка противо москитная,
+															оконная, 150х120</div>
+														<div class="cart-price">550 Р</div>
+													</div>
+													<div class="cart-close"><i class="far fa-times"></i></div>
+												</div>
+												<div class="cart-item">
+													<div class="cart-photo">
+														<div class="box">
+															<div class="content-box" style="background-image: url(img/cart-photo2.png)"></div>
+														</div>
+													</div>
+													<div class="cart-content">
+														<div class="cart-name">Сетка противо москитная,
+															оконная, 150х120</div>
+														<div class="cart-price">550 Р</div>
+													</div>
+													<div class="cart-close"><i class="far fa-times"></i></div>
+												</div>
+												<div class="cart-item">
+													<div class="cart-photo">
+														<div class="box">
+															<div class="content-box" style="background-image: url(img/cart-photo1.png)"></div>
+														</div>
+													</div>
+													<div class="cart-content">
+														<div class="cart-name">Сетка противо москитная,
+															оконная, 150х120</div>
+														<div class="cart-price">550 Р</div>
+													</div>
+													<div class="cart-close"><i class="far fa-times"></i></div>
+												</div>
+											</div>
+											<div class="cart-summ">
+												Итого: 620 Р
+											</div>
+											<div class="btn cart-btn bg-red">Перейти в корзину</div>
+										</div>
 								</div>
 							</div>
 						</div>
-						<div id="cart-list" class="cart-list">
-							<div class="cart-items">
-								<div class="cart-item">
-									<div class="cart-photo">
-										<div class="box">
-											<div class="content-box" style="background-image: url(img/cart-photo1.png)"></div>
-										</div>
-									</div>
-									<div class="cart-content">
-										<div class="cart-name">Сетка противо москитная,
-											оконная, 150х120</div>
-										<div class="cart-price">550 Р</div>
-									</div>
-									<div class="cart-close"><i class="far fa-times"></i></div>
-								</div>
-								<div class="cart-item">
-									<div class="cart-photo">
-										<div class="box">
-											<div class="content-box" style="background-image: url(img/cart-photo2.png)"></div>
-										</div>
-									</div>
-									<div class="cart-content">
-										<div class="cart-name">Сетка противо москитная,
-											оконная, 150х120</div>
-										<div class="cart-price">550 Р</div>
-									</div>
-									<div class="cart-close"><i class="far fa-times"></i></div>
-								</div>
-								<div class="cart-item">
-									<div class="cart-photo">
-										<div class="box">
-											<div class="content-box" style="background-image: url(img/cart-photo1.png)"></div>
-										</div>
-									</div>
-									<div class="cart-content">
-										<div class="cart-name">Сетка противо москитная,
-											оконная, 150х120</div>
-										<div class="cart-price">550 Р</div>
-									</div>
-									<div class="cart-close"><i class="far fa-times"></i></div>
-								</div>
-							</div>
-							<div class="cart-summ">
-								Итого: 620 Р
-							</div>
-							<div class="btn cart-btn bg-red">Перейти в корзину</div>
-						</div>
+						
 					</div>
 				</div>
 			</div>
 		</header>
-		<ul id="header__menu-list" class="header__menu-list static hidden animated faster fadeOutUp">
+		<ul id="header__menu-list" class="header__menu-list">
 			<div class="container">
 				<div class="row header__menu-list--wrapper">
 					<div class='col-sm-6 col-12 header__menu-list--left'>
@@ -491,11 +492,9 @@
 				</div>
 
 				<div class="banner__slider">
-					<div class="banner__img">
-						<img src="img/img1.jpg" alt="">
+					<div class="banner__img" style="background-image: url(img/img1.jpg)">
 					</div>
-					<div class="banner__img">
-						<img src="img/about-us.jpg" alt="">
+					<div class="banner__img" style="background-image: url(img/about-us.jpg)">
 					</div>
 				</div>
 				<div class="nav-container">
@@ -826,8 +825,7 @@
 						</div>
 
 						<div class="about-us__slider">
-							<div class="about-us__img">
-								<img src="img/about-us.jpg" alt="">
+							<div class="about-us__img" style="background-image: url(img/about-us.jpg)">
 							</div>
 						</div>
 						<div class="nav-container black">
@@ -1011,7 +1009,7 @@
 						<div class="col-md-8 col-sm-9">
 							<div class="addres">
 								<div class="row">
-									<div class="addres-city active col-12 col-sm-6 col-md-12">
+									<div id="destroyButton" class="addres-city active col-12 col-sm-6 col-md-12">
 										<div class="addres-title">Офис в барнауле</div>
 										<ul>
 											<li>ул. Автотранспортная, 39</li>
@@ -1019,7 +1017,7 @@
 											<li><a href="mailto:info@profmarketsib.ru">info@profmarketsib.ru</a></li>
 										</ul>
 									</div>
-									<div class="addres-city nsk col-12 col-sm-6 col-md-12">
+									<div id="destroyButton" class="addres-city nsk col-12 col-sm-6 col-md-12">
 										<div class="addres-title">Офис в НОВОСИБИРСКЕ</div>
 										<ul>
 											<li>Новосибирск, Писемского, 24/2</li>
