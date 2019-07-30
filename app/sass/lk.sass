@@ -1,6 +1,8 @@
 @import "vars"
-
-
+#datepicker
+	background-image: url(../img/calendar.png)
+	background-repeat: no-repeat
+	background-position: 98% center
 main.lk
 	background-color: $w-grey
 .section-lk
@@ -10,23 +12,29 @@ main.lk
 	display: flex
 	width: 100%
 	justify-content: space-between
+	padding: 0
 	margin-bottom: 2.5em
 	font-family: $a-font
 	flex-wrap: wrap
+	list-style: none
 	&__item
-		line-height: 1.875em
 		white-space: nowrap
 		text-align: center
-		color: $accent
 		text-transform: uppercase
 		font-size: 0.875em
 		font-weight: 700
 		transition: .3s
 		cursor: pointer
 		position: relative
-		padding: 0.9375em 0
 		flex: 1 1 25%
 		background-color: #fff
+		padding: 0.9375em 0
+		a 
+			
+			text-decoration: none
+			color: $accent
+			display: block
+			line-height: 1.875em
 		&:after
 			content: ''
 			position: absolute
@@ -38,11 +46,12 @@ main.lk
 			right: -0.5px
 			background-color: $w-grey
 			transition: .3s
-		&.active:after, &:hover:after
+		&.ui-tabs-active:after, &:hover:after
 			opacity: 0
-		&:hover, &.active
+		&.ui-tabs-active, &.active
 			background-color: $grey
-			color: #fff
+			a
+				color: #fff
 		&:last-of-type
 			border: none
 			margin: 0
@@ -80,8 +89,7 @@ main.lk
 	background-color: #fff
 	display: flex
 	flex-direction: column
-.your_orders-container
-	overflow-x: auto
+
 .your-orders__row
 	padding: 15px 0 15px 50px
 	border-bottom: 1px solid $w-grey
@@ -292,7 +300,6 @@ main.lk
 		color: grey
 		display: flex
 		flex-direction: column
-		flex: 1 1 40%
 		margin: 0.625em
 		font-family: $a-font
 		span
@@ -300,11 +307,21 @@ main.lk
 			transition: .2s ease
 			height: 20px
 			pointer-events: none
-		input
+		input, select
 			padding-left: 1em 
-			height: 42px
+			height: 2.625rem
 			border: 1px solid #cccccc
-
+.lk-tab4, .lk-tab3
+	label
+		margin: 0
+		padding: 0.3125rem
+	.btn-tab2.btn
+		margin-top: 0
+		margin-bottom: 0.3125rem
+		white-space: nowrap
+		padding-left: 0
+		padding-right: 0
+		text-align: center
 .your-orders__col--date, .your-orders__col--summ
 	flex: 1 1 15%
 .your-orders__col--status
@@ -337,17 +354,10 @@ main.lk
 .form-request
 	background-color: #fff	
 	padding: 2.5em 1.25em
-	.label-container
+	.row
 		align-items: flex-end
-	label
-		flex: 1 1 25%
-	.tab2__comment
-		flex: 1 1 60%
 	.btn-tab2
-		margin: 0
-		margin-bottom: 0.625em
-		margin-right: 0.625em
-		
+		margin-bottom: 0.355rem
 .request, .claim
 	.your_orders
 		margin-top: 1.25em
@@ -357,3 +367,29 @@ main.lk
 			margin-left: -30px
 			margin-bottom: 0
 			padding-top: 1.25em
+#ui-datepicker-div
+	background-color: #fff
+	box-shadow: 3px 3px 3px 3px rgba(0,0,0,0.21)
+	.ui-datepicker-header
+		background-color: $accent
+		display: flex
+		color: #fff
+		padding: 10px 0.625rem
+		justify-content: space-between
+		a 
+			cursor: pointer
+	.ui-datepicker-next
+		order: 1
+
+	td,th
+		padding: 0.3125rem 0.625rem
+	td 
+		a
+			color: $text
+			transition: .3s
+		&:hover
+			cursor: pointer
+			text-decoration: none
+			background-color: $w-grey
+	.ui-datepicker-week-end, .ui-datepicker-week-end a
+		color: $accent

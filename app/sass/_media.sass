@@ -26,10 +26,26 @@
 
 // ≥1200px
 +media-breakpoint-down(lg)
-
+.toggle-content--wrapper
+	max-height: 215px
 
 // ≥992px
 +media-breakpoint-down(md)
+	.card-item
+		&:before
+			display: block
+		.catalog-card__rating
+			display: block
+		.catalog-card__sales
+			right: auto
+			top: auto
+			bottom: 10px
+	.card-item__price
+		&:before
+			display: none
+		.catalog-card__rating
+			display: none
+
 	.body-container.active
 		margin-left: 0
 	.your-orders__col--date, .your-orders__col--summ, .your-orders__col--document
@@ -86,6 +102,10 @@
 		transition: .4s ease
 	.catalog-filter__toogle-btn
 		display: block
+	.your_orders-container
+		overflow-x: auto
+	.lk-tab3 .btn-tab2.btn, .lk-tab4 .btn-tab2.btn
+		margin-top: 1.5625rem
 // ≥768px
 +media-breakpoint-down(sm)
 	.about-us-sliders:before, .banner-sliders:before
@@ -282,7 +302,7 @@
 		display: flex
 		flex-wrap: wrap
 	.partners-logo
-		flex: 1 1 50%
+		flex: 1 1 45%
 	.catalog__slider
 		width: 100%
 	.footer__nav-list
@@ -329,6 +349,18 @@
 		margin: 0
 	.crumbs
 		display: none
+	.card-item__content
+		margin: 0 -3rem		
+	.section-recomended
+		margin: 0 -1.5rem
+		h1
+			padding: 1.5rem
+	.toggle-content--wrapper
+		max-height: 300px
+	.property-list .property-name
+		white-space: pre-wrap
+		.dotted
+			flex: 1 1
 /*==========  Mobile First  ==========*/
 
 // ≤576px

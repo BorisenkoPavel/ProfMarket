@@ -7,6 +7,21 @@
 .card-item
 	padding: 1.25rem
 	background: #fff
+	&:before
+		content: ''
+		position: absolute
+		width: 100px
+		height: 100px
+		top: -3.625rem
+		right: -2.125rem
+		border: 1px solid transparent
+		border-bottom: 1px solid $w-grey
+		transform: rotate(45deg)
+		z-index: 300
+		display: none
+	.catalog-card__rating
+		right: 2.125rem
+		display: none
 	&__photo
 		padding-bottom: 1.25rem
 		border-bottom: 1px solid #ccc
@@ -24,6 +39,12 @@
 	.catalog-card__price
 		margin-bottom: 0
 		line-height: 1
+
+.catalog-card__price-container
+	.catalog-card__price
+		white-space: nowrap
+	.card-item__old-price span
+		white-space: nowrap
 .card-item__description
 	background: #fff
 	height: 100%
@@ -50,6 +71,9 @@
 	display: flex
 	position: relative
 	align-items: center
+	flex-wrap: wrap
+	justify-content: flex-end
+	margin: -0.3125rem 0
 .card-item__price
 	position: relative
 	padding: 1.25rem 1.875rem 1.875rem 1.25rem
@@ -66,9 +90,12 @@
 .catalog-card__price-content
 	display: flex
 	justify-content: space-between
+
 .catalog-card__value-container
 	display: flex
 	align-items: center
+	margin: 0.3125rem 0
+	margin-right: 1.25rem
 	input
 		border: none
 		text-align: center
@@ -79,7 +106,10 @@
 .catalog-card__btn.btn
 	margin-bottom: 0
 	line-height: 1
-	margin-left: 1.25rem
+	white-space: nowrap
+	margin: 0.3125rem 0
+	margin-right: 0.5rem
+
 .card-item__property
 	.card-item__block-title
 		margin: 0
@@ -89,7 +119,8 @@
 .toggle-content--wrapper
 	display: none
 	padding: 0rem 1.875rem 0.9375rem 1.25rem
-
+	max-height: 300px
+	overflow: auto
 .property-list
 	width: 100%
 	font-size: 0.875rem
@@ -108,7 +139,7 @@
 		white-space: nowrap
 	.property-value
 		padding-left: 1.25rem
-.card-item__block--toggle.active
+.card-item__block--toggle.ui-state-active
 	&:after
 		transform: rotatex(180deg)
 .card-item__block--toggle
@@ -117,7 +148,6 @@
 	outline: 1px solid transparent!important
 	border-top: 1px solid #cccccc
 	padding: 1rem 1.875rem 1rem 1.25rem
-
 	&:after
 		content: '\f106'
 		font-family: $fa
